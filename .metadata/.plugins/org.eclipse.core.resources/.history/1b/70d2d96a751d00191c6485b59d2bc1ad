@@ -1,0 +1,19 @@
+import java.security.SecureRandom;
+
+public class AssignRandom2 {
+	
+	// for function a, refer to page 231 in the book
+	private static final int shiftingValue_a = 2;
+	private static final int differenceBetweenValues_a = 2;
+	private static final int scalingFactor_a = 5;
+	
+	private static final SecureRandom randomNumbers = new SecureRandom();
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	private static int a() {
+		
+	}
+}

@@ -1,0 +1,13 @@
+public class PerfectNumbers {
+	public static void main(String[] args) {
+		
+	}
+	
+	private static boolean isPerfect(long number) {
+		boolean result = false;
+		long total = 0;
+		for(long factor = 1; factor < number; ++factor) {
+			
+		}
+	}
+}

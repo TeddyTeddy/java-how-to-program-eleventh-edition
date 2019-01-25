@@ -1,0 +1,21 @@
+public class Hypotenuse {
+	public static void main(String[] args) {
+		double side1, side2;
+		
+		side1 = 3.0;
+		side 2 = 4.0;
+		System.out.printf("side1: %f, side2: %f, hypotenuse: %f", side1, side2, hypotenuse);
+		
+		side1 = 3.0;
+		side 2 = 4.0;
+		System.out.printf("side1: %f, side2: %f, hypotenuse: %f", side1, side2, hypotenuse);
+		
+		side1 = 3.0;
+		side 2 = 4.0;
+		System.out.printf("side1: %f, side2: %f, hypotenuse: %f", side1, side2, hypotenuse);		
+	}
+	
+	private static double hypotenuse(double side1, double side2) {
+		return Math.sqrt(Math.pow(side1, 2) + Math.pow(side2, 2) );
+	}
+}

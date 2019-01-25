@@ -1,0 +1,11 @@
+import java.util.Scanner;
+
+public class QualityPoints {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+	}
+	
+	private static int qualityPoints() {
+		
+	}
+}

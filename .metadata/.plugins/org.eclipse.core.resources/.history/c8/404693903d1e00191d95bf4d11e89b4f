@@ -1,0 +1,12 @@
+public class PrimeNumbers {
+	public static void main(String[] args) {
+		
+	}
+	
+	private static boolean isPrime(int n) {
+		int upperLimit = (int) Math.sqrt(n);
+		for(i = 2; i <= upperLimit; ++i) {
+			if()
+		}
+	}
+}

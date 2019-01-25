@@ -1,0 +1,10 @@
+import java.security.SecureRandom;
+
+public class AssignRandom2 {
+	
+	private static final SecureRandom randomNumbers = new SecureRandom();
+	
+	public static void main(String[] args) {
+		
+	}
+}

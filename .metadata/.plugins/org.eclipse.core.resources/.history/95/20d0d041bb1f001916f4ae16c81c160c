@@ -1,0 +1,10 @@
+import java.util.Scanner;
+import java.security.SecureRandom;
+
+public class ComputerAidedInstruction {
+	private static final SecureRandom randomNumbers = new SecureRandom();
+	public static void main(String[] args) {
+		
+	}
+	
+}

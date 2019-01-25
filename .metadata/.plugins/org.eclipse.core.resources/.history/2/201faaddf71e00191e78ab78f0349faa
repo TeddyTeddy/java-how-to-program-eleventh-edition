@@ -1,0 +1,14 @@
+import java.security.SecureRandom;
+
+public class CoinTossing {
+	private enum Coin { HEADS, TAILS };
+	private static final SecureRandom randomNumbers = new SecureRandom();
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	private static Coin flip() {
+		ONE + randomNumbers.nextInt(TWO);
+	}
+}

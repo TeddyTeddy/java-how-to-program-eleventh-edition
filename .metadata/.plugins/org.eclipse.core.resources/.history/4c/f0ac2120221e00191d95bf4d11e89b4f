@@ -1,0 +1,9 @@
+public class Exponentiation {
+	public static void main(String[] args) {
+		
+	}
+	
+	private static int integerPower(base, exponent) {
+		
+	}
+}

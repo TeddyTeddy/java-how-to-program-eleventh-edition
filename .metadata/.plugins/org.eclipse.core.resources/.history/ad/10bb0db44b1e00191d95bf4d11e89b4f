@@ -1,0 +1,13 @@
+public class ReversingDigits {
+	public static void main(String[] args) {
+		reverseDigits(7631);
+	}
+	
+	// number is 7631
+	private static long reverseDigits(long number) {
+		// get the highest number, which is powers of 10 and less
+		// than number (i.e. 1000)
+		
+		// 
+	}
+}

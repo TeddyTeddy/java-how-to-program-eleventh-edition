@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class DistanceBetweenPoints {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		input.close();
+	}
+	
+	private static double distance(double x1, double y1, double x2, double x2) {
+		return distance;
+	}
+}

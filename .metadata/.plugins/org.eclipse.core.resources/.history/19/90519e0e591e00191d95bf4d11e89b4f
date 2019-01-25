@@ -1,0 +1,9 @@
+public class QualityPoints {
+	public static void main(String[] args) {
+		
+	}
+	
+	private static long gcd(long a, long b) {
+		
+	}
+}

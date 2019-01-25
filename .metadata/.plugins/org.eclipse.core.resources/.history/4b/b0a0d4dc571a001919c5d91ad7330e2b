@@ -1,0 +1,16 @@
+public class Question {
+	private int questionNo;
+	
+	// TODO: throw an exception if questionNo is not between 1 to 5
+	public Question(int questionNo) {
+		this.questionNo = questionNo;
+	}
+	
+	public static void show() {
+		String question = "This is question ";
+		question += questionNo;
+		question += ". What is your answer? ";
+		System.out.printf("%s", question);
+		
+	}
+}

@@ -1,0 +1,13 @@
+public class Multiples {
+	public static void main(String[] args) {
+		
+	}
+	
+	private static boolean isMultiple(int a, int b) {
+		boolean result = false;
+		if(b >= a) {
+			result = ((b % a) == 0);
+		}
+		return result;
+	}
+}

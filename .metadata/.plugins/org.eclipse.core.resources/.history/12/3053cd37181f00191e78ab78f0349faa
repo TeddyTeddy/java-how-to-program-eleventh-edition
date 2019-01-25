@@ -1,0 +1,55 @@
+public class Tables {
+	
+	private static final int TWO = 2;
+	private static final int EIGHT = 8;
+	private static final int SIXTEEN = 16;
+	
+	private static final int MAX_VALUE = 256;
+	
+	public static void main(String[] args) {
+		test_power();
+		// table_of_binary();
+	}
+	
+	private static void table_of_binary() {
+		System.out.print("Decimal\tBinary Representation\n");
+		for(int decimal = 1; decimal <= MAX_VALUE; ++decimal) {
+			String binary = getBinaryRepresentation( decimal );
+			System.out.printf("%d\t%s%n", decimal, binary);
+		}
+		System.out.println();
+	}
+	
+	// i.e. decimal = 25
+	private static String getBinaryRepresentation(int decimal) {
+		
+		// find the leading digit (i.e. power of 2 being less than decimal, i.e. 16 )
+		int leadingDigit = 1; // power(2, 0)
+		int counter = 1;
+		while(leadingDigit <= decimal) {
+			leadingDigit = power(TWO, counter++);
+		}
+		leadingDigit /= TWO;
+		System.out.printf(" Decimal: %d, Leadind digit: %d", decimal, leadingDigit );
+		return "";
+
+	}
+	
+	private static void test_power() {
+		for(int b = 0; b <= 10; ++b ) {
+			System.out.printf("power(%d, %d) returns %d%n", TWO, b, power(TWO, b));
+			System.out.printf("power(%d, %d) returns %d%n", EIGHT, b, power(EIGHT, b));
+			System.out.printf("power(%d, %d) returns %d%n", SIXTEEN, b, power(SIXTEEN, b));
+		}
+	}
+	
+	private static long power(long a, long b) {
+		long result = (b == 0) ? 1 : a;
+		long counter = 1;
+		while(counter < b) {
+			result *= a;
+			++counter;
+		}
+		return result;
+	}
+}

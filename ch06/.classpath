@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="exercise06_03"/>
+	<classpathentry kind="src" path="exercise06_06"/>
+	<classpathentry kind="src" path="fig06_03"/>
+	<classpathentry kind="src" path="fig06_06"/>
+	<classpathentry kind="src" path="fig06_07"/>
+	<classpathentry kind="src" path="fig06_08"/>
+	<classpathentry kind="src" path="fig06_09"/>
+	<classpathentry kind="src" path="fig06_10"/>
+	<classpathentry kind="src" path="GUIGraphicsCaseStudy06"/>
+	<classpathentry kind="src" path="ex06_08"/>
+	<classpathentry kind="src" path="ex06_09"/>
+	<classpathentry kind="src" path="ex06_10"/>
+	<classpathentry kind="src" path="ex06_12"/>
+	<classpathentry kind="src" path="ex06_13"/>
+	<classpathentry kind="src" path="ex06_14"/>
+	<classpathentry kind="src" path="ex06_15"/>
+	<classpathentry kind="src" path="ex06_16"/>
+	<classpathentry kind="src" path="ex06_17"/>
+	<classpathentry kind="src" path="ex06_18"/>
+	<classpathentry kind="src" path="ex06_19"/>
+	<classpathentry kind="src" path="ex06_21"/>
+	<classpathentry kind="src" path="ex06_22"/>
+	<classpathentry kind="src" path="ex06_23"/>
+	<classpathentry kind="src" path="ex06_24"/>
+	<classpathentry kind="src" path="ex06_25"/>
+	<classpathentry kind="src" path="ex06_26"/>
+	<classpathentry kind="src" path="ex06_28"/>
+	<classpathentry kind="src" path="ex06_29"/>
+	<classpathentry kind="src" path="ex06_30"/>
+	<classpathentry kind="src" path="ex06_31"/>
+	<classpathentry kind="src" path="ex06_32"/>
+	<classpathentry kind="src" path="ex06_33"/>
+	<classpathentry kind="src" path="ex06_34"/>
+	<classpathentry kind="src" path="ex06_35"/>
+	<classpathentry kind="src" path="ex06_36"/>
+	<classpathentry kind="src" path="ex06_37"/>
+	<classpathentry kind="src" path="ex06_38"/>
+	<classpathentry kind="src" path="ex06_39"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

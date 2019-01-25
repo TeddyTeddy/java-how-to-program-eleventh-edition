@@ -1,0 +1,10 @@
+public class Question {
+	private int questionNo;
+	
+	// TODO: throw an exception if questionNo is not between 1 to 5
+	public Question(int questionNo) {
+		this.questionNo = questionNo;
+	}
+	
+	
+}

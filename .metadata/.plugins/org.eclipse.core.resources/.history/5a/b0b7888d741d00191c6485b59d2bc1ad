@@ -1,0 +1,7 @@
+import java.security.SecureRandom;
+
+public class AssignRandom2 {
+	public static void main(String[] args) {
+		
+	}
+}

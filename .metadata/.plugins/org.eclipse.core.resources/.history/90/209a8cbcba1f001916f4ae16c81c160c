@@ -1,0 +1,7 @@
+import java.util.Scanner;
+
+public class ComputerAidedInstruction {
+	public static void main(String[] args) {
+		
+	}
+}

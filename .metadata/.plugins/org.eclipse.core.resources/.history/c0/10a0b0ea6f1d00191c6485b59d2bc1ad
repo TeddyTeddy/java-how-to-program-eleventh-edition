@@ -1,0 +1,82 @@
+import java.security.SecureRandom;
+
+public class AssignRandom {
+	private static final int LOOP_COUNT = 1000;
+	private static final int ONE = 1;
+	private static final int TWO = 2;
+	private static final int HUNDRED = 100;
+	private static final int TEN = 10;
+	
+	private static final SecureRandom randomNumbers = new SecureRandom();
+	
+	public static void main(String[] args) {
+		test_a();
+		test_b();
+	}
+	
+	private static void test_a() {
+		boolean isFailed = false;
+		for(int i = 1; i <= LOOP_COUNT; ++i ) {
+			int randomNumber = a();
+			if((randomNumber != ONE) && (randomNumber != TWO)) {
+				System.out.printf("Calling a() returned %d", randomNumber);
+				isFailed = true;
+				break;
+			}
+		}
+		if(!isFailed) {
+			System.out.println("a() passed the test");
+		} else {
+			System.out.println("a() failed the test");
+		}
+	}
+	
+	// 1 <= n <= 2; n integer
+	private static int a() {
+		return ONE + randomNumbers.nextInt(TWO);
+	}
+	
+	private static void test_b() {
+		boolean isFailed = false;
+		for(int i = 1; i <= LOOP_COUNT; ++i ) {
+			int randomNumber = b();
+			if(!((randomNumber >= ONE) && (randomNumber <= HUNDRED))) {
+				System.out.printf("Calling b() returned %d", randomNumber);
+				isFailed = true;
+				break;
+			}
+		}
+		if(!isFailed) {
+			System.out.println("b() passed the test");
+		} else {
+			System.out.println("b() failed the test");
+		}
+	}
+	
+	// 1 <= n <= 2; n integer
+	private static int b() {
+		return ONE + randomNumbers.nextInt(HUNDRED);
+	}
+	
+	private static void test_a() {
+		boolean isFailed = false;
+		for(int i = 1; i <= LOOP_COUNT; ++i ) {
+			int randomNumber = a();
+			if((randomNumber != ONE) && (randomNumber != TWO)) {
+				System.out.printf("Calling a() returned %d", randomNumber);
+				isFailed = true;
+				break;
+			}
+		}
+		if(!isFailed) {
+			System.out.println("a() passed the test");
+		} else {
+			System.out.println("a() failed the test");
+		}
+	}
+	
+	// 1 <= n <= 2; n integer
+	private static int c() {
+		return randomNumbers.nextInt(TEN);
+	}
+}

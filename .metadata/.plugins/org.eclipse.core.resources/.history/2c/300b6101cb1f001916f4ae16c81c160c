@@ -1,0 +1,133 @@
+import java.util.Scanner;
+import java.security.SecureRandom;
+
+public class ComputerAidedInstruction4 {
+	private static final SecureRandom randomNumbers = new SecureRandom();
+	private static final int TEN = 10;
+	private static final int ONE = 1;
+	private static final int FOUR = 4;
+	
+	// test_power()
+	private static final long TWO = 2;
+	private static final long EIGHT = 8;
+	private static final long SIXTEEN = 16;
+	
+	public static void main(String[] args) {
+		
+		// initialize
+		Scanner input = new Scanner(System.in);
+		long difficultyLevel = getDifficultyLevel(input);
+		
+		int numberOfCorrectResponses = 0;
+		for(int i = 1; i <= TEN; ++i) {
+			if(executeQuestionRound(input, difficultyLevel)) {
+				++numberOfCorrectResponses;
+			}
+		}
+		if(numberOfCorrectResponses >= 8) {
+			System.out.println("Congradulations! You are ready to go to the next level!");
+		} else {
+			System.out.println("Please ask your teacher for extra help.");
+		}
+		
+		input.close();
+		
+	}
+	
+	private static long getDifficultyLevel(Scanner input) {
+		System.out.print("Enter difficulty level from 1-4: ");
+		long difficultyLevel = input.nextInt();
+		while(!((difficultyLevel >= ONE) && (difficultyLevel <= FOUR)) ) {
+			System.out.print("Incorrect value. Enter difficulty level from 1-4: ");
+			difficultyLevel = input.nextInt();	
+		}
+		return difficultyLevel;
+	}
+	
+	private static boolean executeQuestionRound(Scanner input, long difficultyLevel) {
+		
+		long scaling factor = power(TEN, )
+		// pick numberOne randomly from 0 to scalingFactor
+		int numberOne = randomNumbers.nextInt(scalingFactor);
+		
+		// pick numberTwo randomly from 0 to 9
+		int numberTwo = randomNumbers.nextInt(TEN);
+			
+		// display the question
+		displayQuestion(numberOne, numberTwo);
+		// get the answer from user
+		int answer = input.nextInt();
+			
+		if(numberOne*numberTwo == answer) {
+			printRandomPositiveResponse();
+		} else {
+			printRandomNegativeResponse();	
+		}
+		
+		return numberOne*numberTwo == answer;
+
+	}
+	
+	private static void displayQuestion(int a, int b) {
+		System.out.printf("How much is %d times %d? ", a, b);
+	}
+	
+	private static void printRandomPositiveResponse() {
+		int randomNumber = ONE + randomNumbers.nextInt(FOUR);
+		String message = "";
+		switch( randomNumber ) {
+			case 1:
+				message = "Very good!";
+				break;
+			case 2:
+				message = "Excellent!";
+				break;
+			case 3:
+				message = "Nice work!";
+				break;
+			case 4:
+				message = "Keep up the good work!";
+				break;
+		}
+		System.out.printf("%s%n", message);
+	}
+	
+	private static void printRandomNegativeResponse() {
+		int randomNumber = ONE + randomNumbers.nextInt(FOUR);
+		String message = "";
+		switch( randomNumber ) {
+			case 1:
+				message = "No. But you can succeed in the next question!";
+				break;
+			case 2:
+				message = "Wrong. But next question can be easier";
+				break;
+			case 3:
+				message = "No, but don't give up!";
+				break;
+			case 4:
+				message = "No. Keep trying.";
+				break;
+		}
+		System.out.printf("%s%n", message);
+	}
+	
+	private static void test_power() {
+		for(int b = 0; b <= 10; ++b ) {
+			System.out.printf("power(%d, %d) returns %d%n", TWO, b, power(TWO, b));
+			System.out.printf("power(%d, %d) returns %d%n", EIGHT, b, power(EIGHT, b));
+			System.out.printf("power(%d, %d) returns %d%n", SIXTEEN, b, power(SIXTEEN, b));
+		}
+	}
+	
+	private static long power(long base, long exponent) {
+		long result = (exponent == 0) ? 1 : base;
+		long counter = 1;
+		while(counter < exponent) {
+			result *= base;
+			++counter;
+		}
+		return result;
+	}
+
+}

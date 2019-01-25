@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class QualityPoints {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		input.close();
+	}
+	
+	private static int qualityPoints(Scanner input) {
+		System.out.printf("Enter a students average (0-100): ");
+		int average = input.nextInt();
+		while(!((average >= 0) && (average <= 100))) {
+			System.out.printf("Incorrect value. Enter a students average (0-100): ");
+			average = input.nextInt();	
+		}
+	}
+}
