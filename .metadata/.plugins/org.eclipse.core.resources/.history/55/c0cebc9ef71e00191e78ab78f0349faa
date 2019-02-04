@@ -1,7 +1,0 @@
-public class CoinTossing {
-	private enum Coin { HEADS, TAILS };
-	
-	public static void main(String[] args) {
-		
-	}
-}

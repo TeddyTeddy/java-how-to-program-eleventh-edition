@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="fig07_02"/>
+	<classpathentry kind="src" path="fig07_03"/>
+	<classpathentry kind="src" path="fig07_04"/>
+	<classpathentry kind="src" path="fig07_05"/>
+	<classpathentry kind="src" path="fig07_06"/>
+	<classpathentry kind="src" path="fig07_07"/>
+	<classpathentry kind="src" path="fig07_08"/>
+	<classpathentry kind="src" path="fig07_09_11"/>
+	<classpathentry kind="src" path="fig07_12"/>
+	<classpathentry kind="src" path="fig07_13"/>
+	<classpathentry kind="src" path="fig07_14_15"/>
+	<classpathentry kind="src" path="fig07_17"/>
+	<classpathentry kind="src" path="fig07_18_19"/>
+	<classpathentry kind="src" path="fig07_20"/>
+	<classpathentry kind="src" path="fig07_21"/>
+	<classpathentry kind="src" path="fig07_22"/>
+	<classpathentry kind="src" path="fig07_24"/>
+	<classpathentry kind="src" path="GUIGraphicsCaseStudy07"/>
+	<classpathentry kind="src" path="ex07_8d"/>
+	<classpathentry kind="src" path="ex07_08e"/>
+	<classpathentry kind="src" path="ex07_09"/>
+	<classpathentry kind="src" path="ex07_10"/>
+	<classpathentry kind="src" path="ex07_11"/>
+	<classpathentry kind="src" path="ex07_12"/>
+	<classpathentry kind="src" path="ex07_14"/>
+	<classpathentry kind="src" path="ex07_15"/>
+	<classpathentry kind="src" path="ex07_16"/>
+	<classpathentry kind="src" path="ex07_17"/>
+	<classpathentry kind="src" path="ex07_18"/>
+	<classpathentry kind="src" path="ex07_19"/>
+	<classpathentry kind="src" path="ex07_20"/>
+	<classpathentry kind="src" path="ex07_21"/>
+	<classpathentry kind="src" path="ex07_22"/>
+	<classpathentry kind="src" path="ex07_27"/>
+	<classpathentry kind="src" path="ex07_28"/>
+	<classpathentry kind="src" path="ex07_29"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
