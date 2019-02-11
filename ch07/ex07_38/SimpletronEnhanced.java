@@ -1,24 +1,32 @@
+// SOURCES:
+// https://coderanch.com/t/40/676573/engineering/Building-computer-compiler
+// https://github.com/carlosrevespt/Simpletron/blob/version3/SMLProcessor.java
+// https://www.geeksforgeeks.org/bitwise-shift-operators-in-java/
+// https://www.geeksforgeeks.org/1s-2s-complement-binary-number/
+
 import java.util.Scanner;
 
-public class Simpletron {
-	private static final int MEMORY_SIZE = 100;
-	private static final int MIN_VALID_WORD = -9999;
-	private static final int MAX_VALID_WORD = 9999;
-	private static final int SENTINEL = -99999;
+public class SimpletronEnhanced {
+	private static final int MEMORY_SIZE = 1000;
+	private static final int MIN_VALID_WORD = -0xFFFF; // -65535
+	private static final int MAX_VALID_WORD = 0xFFFF;  //  65535
+	private static final int SENTINEL = -0x99999;
+	
+	public static final int BASE_16 = 16;
 	
 	// SML OPERATION CODES
-	private static final int READ = 10;
-	private static final int WRITE = 11;
-	private static final int LOAD = 20;
-	private static final int STORE = 21;
-	private static final int ADD = 30;
-	private static final int SUBTRACT = 31;
-	private static final int DIVIDE = 32;
-	private static final int MULTIPLY = 33;
-	private static final int BRANCH = 40;
-	private static final int BRANCHNEG = 41;
-	private static final int BRANCHZERO = 42;
-	private static final int HALT = 43;
+	private static final int READ = 0x10;
+	private static final int WRITE = 0x11;
+	private static final int LOAD = 0x20;
+	private static final int STORE = 0x21;
+	private static final int ADD = 0x30;
+	private static final int SUBTRACT = 0x31;
+	private static final int DIVIDE = 0x32;
+	private static final int MULTIPLY = 0x33;
+	private static final int BRANCH = 0x40;
+	private static final int BRANCHNEG = 0x41;
+	private static final int BRANCHZERO = 0x42;
+	private static final int HALT = 0x43;
 	
 	private static int[] memory = new int[MEMORY_SIZE];
 	private static int accumulator = 0;
@@ -42,8 +50,8 @@ public class Simpletron {
 		do {
 			// read into instructionRegister memory[instructionCounter] value
 			instructionRegister = memory[instructionCounter];
-			operationCode = instructionRegister / 100;
-			operand = instructionRegister % 100;  // bound to be between 0-99
+			operationCode = instructionRegister >> 8;
+			operand = instructionRegister & 0xff;  // bound to be between 00-FF --> 0 - 255
 			executeSMLInstruction(input);  		  // will modify the instructionCounter(, operationCode, accumulator)
 		} while((operationCode != HALT) && (instructionCounter < MEMORY_SIZE));
 	}
@@ -51,27 +59,30 @@ public class Simpletron {
 	// executes the instruction stored in the instructionRegister, operationCode and operand
 	private static void executeSMLInstruction(Scanner input) {
 		switch(operationCode) {
-			case READ: // Tested
+			case READ: // TESTED
 				// read a valid word from keyboard into memory[operand]
 				memory[operand] = readValidSMLWord(operand, input);
 				++instructionCounter; // move to the next instruction in memory
 				break;
-			case WRITE: // Tested
+			case WRITE: // TESTED
 				// write a word from a specific location in memory to the screen
-				System.out.printf("memory[%d]: %+05d%n", operand, memory[operand]);
+				int wordHex = memory[operand];
+				System.out.printf("memory[0x%-5s]: 0x%-5s%n", 
+						Integer.toString(operand, BASE_16).toUpperCase(), 
+						Integer.toString(wordHex, BASE_16).toUpperCase());
 				++instructionCounter;
 				break;
-			case LOAD: // Tested
+			case LOAD: // TESTED
 				// Load a word from a specific location in memory into the accumulator
 				accumulator = memory[operand];
 				++instructionCounter;  // move to the next instruction in memory
 				break;
-			case STORE: // Tested
+			case STORE: // TESTED
 				// Store a word from the accumulator into a specific location in memory
 				memory[operand] = accumulator;
 				++instructionCounter;  // move to the next instruction in memory
 				break;
-			case ADD: // Tested
+			case ADD: // TESTED
 				// Add a word from memory[operand] to the word in the accumulator
 				// Leave the result in accumulator
 				int temporary = memory[operand] + accumulator;
@@ -84,7 +95,7 @@ public class Simpletron {
 					++instructionCounter;  // move to the next instruction in memory
 				}
 				break;
-			case SUBTRACT: // Tested
+			case SUBTRACT: // TESTED
 				// Subtract a word from memory[operand] from the word in the accumulator
 				// Leave the result in accumulator
 				temporary = accumulator - memory[operand];
@@ -97,7 +108,7 @@ public class Simpletron {
 					++instructionCounter;   // move to the next instruction in memory
 				}
 				break;
-			case DIVIDE:  // Tested
+			case DIVIDE: // TESTED
 				// Divide a word from a specific location in memory into the word in the accumulator
 				// Leave the result in accumulator
 				if(memory[operand] == 0) { // division by zero to occur
@@ -108,7 +119,7 @@ public class Simpletron {
 					++instructionCounter; // move to the next instruction in memory
 				}
 				break;
-			case MULTIPLY: // Tested
+			case MULTIPLY: // TESTED
 				// Multiply a word from a specific location in memory by the word in the accumulator
 				// leave the result in accumulator
 				temporary = accumulator * memory[operand];
@@ -121,7 +132,7 @@ public class Simpletron {
 					++instructionCounter;   // move to the next instruction in memory
 				}
 				break;
-			case BRANCH:  // TESTED
+			case BRANCH: // TESTED
 				// branch to a specific location in memory
 				instructionCounter = operand; // operand with values 00-99
 				break;
@@ -141,7 +152,7 @@ public class Simpletron {
 					++instructionCounter; // move to the next instruction in memory
 				}
 				break;
-			case HALT: // TESTED
+			case HALT:  // TESTED
 				System.out.println("*** Simpletron execution terminated ***");
 				break;
 			default: // TESTED
@@ -159,13 +170,16 @@ public class Simpletron {
 	
 	private static int readValidSMLWord(int loadingCounter, Scanner input) {
 
-		System.out.printf("%02d ? ", loadingCounter);
-		int word = input.nextInt();
+		System.out.printf("0x%-5s ? ", Integer.toString(loadingCounter, BASE_16).toUpperCase());
+		int word = input.nextInt(BASE_16);
 		boolean isValid = (((word >= MIN_VALID_WORD) && (word <= MAX_VALID_WORD)));
 		while(!isValid) {
-			System.out.printf("Invalid SML word. Word must be in [%d, %d] range%n", MIN_VALID_WORD, MAX_VALID_WORD);
-			System.out.printf("%02d ? ", loadingCounter);
-			word = input.nextInt();
+			System.out.printf("Invalid SML instruction or data. Instruction must be in [0x%-5s, 0x%-5s] range. %n", 
+					Integer.toString(MIN_VALID_WORD, BASE_16).toUpperCase(),
+					Integer.toString(MAX_VALID_WORD, BASE_16).toUpperCase()
+			);
+			System.out.printf("0x%-5s ? ", Integer.toString(loadingCounter, BASE_16).toUpperCase());
+			word = input.nextInt(BASE_16);
 			isValid = (((word >= MIN_VALID_WORD) && (word <= MAX_VALID_WORD)));
 		}
 
@@ -196,22 +210,26 @@ public class Simpletron {
 	private static void displayWelcomeMessage() {
 		System.out.printf ("\n%s\n%s\n%s\n%s\n%s\n%s\n\n", 
 			"*** Welcome to Simpletron! ***",
-			"*** Please enter your program one instruction    ***",
-			"*** (or data word) at a time. I will display     ***",
-			"*** the location number and a question mark (?). *** ",
-			"*** You then type the word for that location.    ***",
-			"*** Type -99999 to stop entering your program    ***");
+			"*** Please enter your program one instruction       ***",
+			"*** (or data word) in HEX at a time. I will display ***",
+			"*** the location number and a question mark (?).    *** ",
+			"*** You then type the word for that location.       ***",
+			"*** Type -99999 to stop entering your program       ***");
 	} 
 	
 	private static int readValidInstruction(int loadingCounter, Scanner input) {
 
-		System.out.printf("%02d ? ", loadingCounter);
-		int instruction = input.nextInt();
+		System.out.printf("0x%-5s ? ", Integer.toString(loadingCounter, BASE_16).toUpperCase());
+		int instruction = input.nextInt(BASE_16);
 		boolean isValid = (((instruction >= MIN_VALID_WORD) && (instruction <= MAX_VALID_WORD)) || (instruction == SENTINEL));
 		while(!isValid) {
-			System.out.printf("Invalid SML instruction or data. Instruction must be in [%d, %d] range. Or sentinel %d. %n", MIN_VALID_WORD, MAX_VALID_WORD, SENTINEL);
-			System.out.printf("%02d ? ", loadingCounter);
-			instruction = input.nextInt();
+			System.out.printf("Invalid SML instruction or data. Instruction must be in [0x%-5s, 0x%-5s] range. Or sentinel 0x%-5s. %n", 
+					Integer.toString(MIN_VALID_WORD, BASE_16).toUpperCase(),
+					Integer.toString(MAX_VALID_WORD, BASE_16).toUpperCase(), 
+					Integer.toString(SENTINEL, BASE_16).toUpperCase()
+			);
+			System.out.printf("0x%-5s ? ", Integer.toString(loadingCounter, BASE_16).toUpperCase());
+			instruction = input.nextInt(BASE_16);
 			isValid = (((instruction >= MIN_VALID_WORD) && (instruction <= MAX_VALID_WORD)) || (instruction == SENTINEL));
 		}
 
@@ -219,32 +237,32 @@ public class Simpletron {
 	}
 	
 	private static void dump() {
-		final int COLUMN = 10;
-		
+		final int COLUMN = 16;
+
 		System.out.println();
 		System.out.println("REGISTERS:");
-		System.out.printf("accumulator          %+05d%n", accumulator);
-		System.out.printf("instructionCounter:    %03d%n" , instructionCounter);
-		System.out.printf("instructionRegister: %+05d%n", instructionRegister);
-		System.out.printf("operationCode:          %02d%n", operationCode);
-		System.out.printf("operand                 %02d%n%n", operand);
+		System.out.printf("accumulator          0x%-5s%n",  Integer.toString(accumulator, BASE_16).toUpperCase());
+		System.out.printf("instructionCounter:  0x%-5s%n" , Integer.toString(instructionCounter, BASE_16).toUpperCase());
+		System.out.printf("instructionRegister: 0x%-5s%n",  Integer.toString(instructionRegister, BASE_16).toUpperCase());
+		System.out.printf("operationCode:       0x%-5s%n",  Integer.toString(operationCode, BASE_16).toUpperCase());
+		System.out.printf("operand              0x%-5s%n%n",Integer.toString(operand, BASE_16).toUpperCase());
 		
 		System.out.println("MEMORY:");
 		// print the header
-		System.out.print("    ");
+		System.out.print("        ");
 		for(int column = 0; column < COLUMN; ++column) {
-			System.out.printf("%4d  ", column);
+			System.out.printf("%-7s ", Integer.toString(column, BASE_16).toUpperCase());
 		}
 		System.out.println();
-		
+
 		for(int i = 0; i < MEMORY_SIZE; ++i) {
-			if(i % 10 == 0) {
-				// print the row index (i.e. 0, 10, 20, ..., 90)
-				System.out.printf("%2d ", i);
+			if(i % BASE_16 == 0) {
+				// print the row index (i.e. 0x0, 0x1, 0x2, ...)
+				System.out.printf("0x%-5s ", Integer.toString(i >> 4, BASE_16).toUpperCase());
 			}
 			
 			// print the i.th memory location
-			System.out.printf("%+05d ", memory[i]);
+			System.out.printf("0x%-5s ", Integer.toString(memory[i], BASE_16).toUpperCase());
 			
 			if(((i+1) % COLUMN) == 0) {
 				System.out.println();

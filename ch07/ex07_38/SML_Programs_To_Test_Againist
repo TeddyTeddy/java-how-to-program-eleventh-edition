@@ -1,0 +1,133 @@
+(Tested) SML Program 1 - Adding 2 numbers (overflow can happen)
+00 ? +1009 // READ a word into 09
+01 ? +2009 // LOAD 09 into accumulator
+02 ? +100A // READ a word into 0A
+03 ? +300A // ADD memory[0A] to accumulator and leave the result in accumulator
+04 ? +210B // STORE a word from the accumulator into 0B
+05 ? +110B // WRITE 0B into screen
+06 ? +4300 // HALT
+
+(Tested) SML Program 2 - Subtracting 2 numbers (overflow can happen)
+00 ? +1009 // READ a word into 09
+01 ? +2009 // LOAD 09 into accumulator
+02 ? +100A // READ a word into 0A
+03 ? +310A // SUBTRACT memory[0A] from accumulator and leave the result in accumulator
+04 ? +210B // STORE a word from the accumulator into 11
+05 ? +110B // WRITE 11 into screen
+06 ? +4300 // HALT
+
+(Tested) SML Program 3 - Dividing 2 numbers (divide by zero can happen)
+00 ? +1009 // READ a word into 09
+01 ? +2009 // LOAD 09 into accumulator
+02 ? +100A // READ a word into 0A
+03 ? +320A // DIVIDE accumulator by memory[0A] and leave the result in accumulator
+04 ? +210B // STORE a word from the accumulator into 0B
+05 ? +110B // WRITE 0B into screen
+06 ? +4300 // HALT
+
+(Tested) SML Program 4 - Multiplying 2 numbers (overflow can happen)
+00 ? +1009 // READ a word into 09
+01 ? +2009 // LOAD 09 into accumulator
+02 ? +100A // READ a word into 0A
+03 ? +330A // MULTIPLY accumulator by memory[0A] and leave the result in accumulator
+04 ? +210B // STORE a word from the accumulator into 0B
+05 ? +110B // WRITE 11 into screen
+06 ? +4300 // HALT
+
+(Tested) SML Program 5 - Sentinel Controlled Program to sum 10 integers
+Source: https://www.chegg.com/homework-help/machine-language-programming-let-s-create-computer-called-si-chapter-8-problem-31e-solution-9780133379334-exc
+
+The sentinel controlled program can be made by putting the instruction
+for taking two positive numbers as input and storing their sum in memory.
+This can be done by taking a number as input and storing that in the accumulator.
+This would be continued with the help of the branch instruction until a negative
+number is encountered.
+
+00 ? +100B READ Variable A
+01 ? +200B LOAD A into accumulator
+02 ? +410A BRANCHNEG TO 0A : If A contains negative number, halt the execution
+03 ? +100C READ Variable B
+04 ? +200C LOAD B into accumulator
+05 ? +4109 BRANCHNEG to 09 : If B contains a negative number, write A to the output and halt the execution
+06 ? +300B ADD input A to the accumulator
+07 ? +210B STORE A : Write the word in accumulator into A
+08 ? +4003 BRANCH TO B
+09 ? +110B WRITE A : Write the word stored in A to screen
+0A ? +4300 HALT
+0B ? VARIABLE A  // Location for the SUM
+0C ? VARIABLE B  // 
+
+(Tested) Ex07_36_a : SML Program 6 - Sentinel (0) Controlled Program to sum any number of integers
+SOURCE: https://coderanch.com/t/676573/engineering/Building-computer-compiler
+
+I modified the program that is provided in SOURCE to make the sentinel 0
+
+Location	Instruction	Comments
+00		1008		READ an integer A
+01		2008		LOAD A to accumulator
+02		4206		BRANCHZERO: Sentinel is zero, so branch to end the loop if it's entered
+03		3009		ADD the sum to the accumulator
+04		2109		STORE : Store the sum
+05		4000		BRANCH : Repeat process
+06		1109		WRITE : Write the sum
+07		4300		HALT End the program
+08		0000		Location for input A
+09		0000		Location for sum
+
+TEST THIS - Ex07_36_b : SML Program 7 
+SOURCE: https://coderanch.com/t/676573/engineering/Building-computer-compiler
+Use a counter-controlled loop to read seven numbers, some positive and some negative, and compute and display their average.
+
+Location	Instruction	Comments
+00		2010		LOAD initial counter to accumulator
+01		2112		STORE current counter value
+02		1013		READ an integer
+03		2013		LOAD integer to accumulator
+04		3014		ADD the number to the sum
+05		2114		STORE the sum
+06		2012		LOAD current counter to accumulator
+07		3111		SUBTRACT counter by 1
+08		420B		If counter == 0 end loop
+09		2112		Store current counter value
+0A		4002		BRANCH : Repeat the process
+0B		2014		Load the sum to accumulator
+0C		3210		Divide the sum by the count of numbers entered
+0D		2115		Store the average of the numbers
+0E		1115		Write the average
+0F		4300		End program
+10		0007		Initial value for counter
+11		0001		Counter decrement
+12		0000		Location for current counter
+13		0000		Location for input integer
+14		0000		Location for sum
+15		0000		Location for average
+
+(Tested) TEST THIS - Ex07_36_c - SML PRogram 8
+SOURCE: https://coderanch.com/t/676573/engineering/Building-computer-compiler
+Read a series of numbers, and determine and display the largest number. 
+The first number read indicates how many numbers should be processed.
+
+Here it is:
+Location	Instruction	Comments
+00		1010		Input the total number of integers (counter)
+01		1011		Input an integer
+02		2012		Load maximum to accumulator
+03		3111		Subtract the entered number
+04		410A		If result < 0 goto 0A
+05		2010		Load counter to accumulator
+06		310F		Decrement counter
+07		420D		If counter == 0 end loop and goto 0D
+08		2110		Store the counter
+09		4001		Repeat input process
+0A		2011		Load input integer to accumulator
+11		2112		Store it as new maximum
+12		4005		Goto 05 to decrement counter
+0D		1112		Write the maximum
+14		4300		End Program
+0F		0001		Counter decrement value
+10		0000		Location for counter
+11		0000		Location for input integer
+12		0000		Location for maximum
+
+
+

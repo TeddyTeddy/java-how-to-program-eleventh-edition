@@ -1,10 +1,10 @@
-SML Program 1 - Adding 2 numbers (overflow can happen)
+(Tested) SML Program 1 - Adding 2 numbers (overflow can happen)
 00 ? +1009 // READ a word into 09
 01 ? +2009 // LOAD 09 into accumulator
-02 ? +1010 // READ a word into 10
-03 ? +3010 // ADD memory[10] to accumulator and leave the result in accumulator
-04 ? +2111 // STORE a word from the accumulator into 11
-05 ? +1111 // WRITE 11 into screen
+02 ? +100A // READ a word into 0A
+03 ? +300A // ADD memory[0A] to accumulator and leave the result in accumulator
+04 ? +210B // STORE a word from the accumulator into 0B
+05 ? +110B // WRITE 0B into screen
 06 ? +4300 // HALT
 
 SML Program 2 - Subtracting 2 numbers (overflow can happen)
