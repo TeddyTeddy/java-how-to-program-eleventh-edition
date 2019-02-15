@@ -1,4 +1,4 @@
-(Tested) SML Program 1 - Adding 2 numbers (overflow can happen)
+SML Program 1 - Adding 2 numbers (overflow can happen)
 00 ? +1009 // READ a word into 09
 01 ? +2009 // LOAD 09 into accumulator
 02 ? +100A // READ a word into 0A
@@ -7,7 +7,7 @@
 05 ? +110B // WRITE 0B into screen
 06 ? +4300 // HALT
 
-(Tested) SML Program 2 - Subtracting 2 numbers (overflow can happen)
+SML Program 2 - Subtracting 2 numbers (overflow can happen)
 00 ? +1009 // READ a word into 09
 01 ? +2009 // LOAD 09 into accumulator
 02 ? +100A // READ a word into 0A
@@ -16,7 +16,7 @@
 05 ? +110B // WRITE 11 into screen
 06 ? +4300 // HALT
 
-(Tested) SML Program 3 - Dividing 2 numbers (divide by zero can happen)
+SML Program 3 - Dividing 2 numbers (divide by zero can happen)
 00 ? +1009 // READ a word into 09
 01 ? +2009 // LOAD 09 into accumulator
 02 ? +100A // READ a word into 0A
@@ -25,7 +25,7 @@
 05 ? +110B // WRITE 0B into screen
 06 ? +4300 // HALT
 
-(Tested) SML Program 4 - Multiplying 2 numbers (overflow can happen)
+SML Program 4 - Multiplying 2 numbers (overflow can happen)
 00 ? +1009 // READ a word into 09
 01 ? +2009 // LOAD 09 into accumulator
 02 ? +100A // READ a word into 0A
@@ -34,7 +34,7 @@
 05 ? +110B // WRITE 11 into screen
 06 ? +4300 // HALT
 
-(Tested) SML Program 5 - Sentinel Controlled Program to sum 10 integers
+SML Program 5 - Sentinel Controlled Program to sum 10 integers
 Source: https://www.chegg.com/homework-help/machine-language-programming-let-s-create-computer-called-si-chapter-8-problem-31e-solution-9780133379334-exc
 
 The sentinel controlled program can be made by putting the instruction
@@ -57,7 +57,7 @@ number is encountered.
 0B ? VARIABLE A  // Location for the SUM
 0C ? VARIABLE B  // 
 
-(Tested) Ex07_36_a : SML Program 6 - Sentinel (0) Controlled Program to sum any number of integers
+Ex07_36_a : SML Program 6 - Sentinel (0) Controlled Program to sum any number of integers
 SOURCE: https://coderanch.com/t/676573/engineering/Building-computer-compiler
 
 I modified the program that is provided in SOURCE to make the sentinel 0
@@ -74,7 +74,7 @@ Location	Instruction	Comments
 08		0000		Location for input A
 09		0000		Location for sum
 
-TEST THIS - Ex07_36_b : SML Program 7 
+Ex07_36_b : SML Program 7 
 SOURCE: https://coderanch.com/t/676573/engineering/Building-computer-compiler
 Use a counter-controlled loop to read seven numbers, some positive and some negative, and compute and display their average.
 
@@ -102,7 +102,7 @@ Location	Instruction	Comments
 14		0000		Location for sum
 15		0000		Location for average
 
-(Tested) TEST THIS - Ex07_36_c - SML PRogram 8
+Ex07_36_c - SML PRogram 8
 SOURCE: https://coderanch.com/t/676573/engineering/Building-computer-compiler
 Read a series of numbers, and determine and display the largest number. 
 The first number read indicates how many numbers should be processed.
@@ -127,7 +127,34 @@ Location	Instruction	Comments
 0F		0001		Counter decrement value
 10		0000		Location for counter
 11		0000		Location for input integer
-12		0000		Location for maximum
+12		-FFFF		Location for maximum
+
+SML Program 9 - Remainder of 2 numbers (divide by zero can happen)
+00 ? +1009 // READ a word into 09
+01 ? +2009 // LOAD 09 into accumulator
+02 ? +100A // READ a word into 0A
+03 ? +340A // Remainder memory[0A] to accumulator and leave the result in accumulator
+04 ? +210B // STORE a word from the accumulator into 0B
+05 ? +110B // WRITE 0B into screen
+06 ? +4300 // HALT
+
+SML Program 10 - Power of 2 numbers (overflow can happen)
+00 ? +1009 // READ a word into 09
+01 ? +2009 // LOAD 09 into accumulator
+02 ? +100A // READ a word into 0A
+03 ? +350A // Calculate accumulator's memory[0A] power
+04 ? +210B // STORE a word from the accumulator into 0B
+05 ? +110B // WRITE 0B into screen
+06 ? +4300 // HALT
+
+SML Program 11 - Reading a string and writing it back
+00 ? +1303 // Read a string into 03 onwards
+01 ? +1403 // OUTPUT the string, which starts at 03, to output console
+02 ? +4300 // HALT
+03 ? +0000
+
+
+
 
 
 

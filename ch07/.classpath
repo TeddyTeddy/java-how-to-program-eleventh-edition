@@ -42,9 +42,9 @@
 	<classpathentry kind="src" path="ex07_28"/>
 	<classpathentry kind="src" path="ex07_29"/>
 	<classpathentry kind="src" path="ex07_30"/>
-	<classpathentry kind="src" path="ex07_37"/>
 	<classpathentry kind="src" path="ex07_39"/>
 	<classpathentry kind="src" path="ex07_40"/>
 	<classpathentry kind="src" path="ex07_38"/>
+	<classpathentry kind="src" path="ex07_37"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

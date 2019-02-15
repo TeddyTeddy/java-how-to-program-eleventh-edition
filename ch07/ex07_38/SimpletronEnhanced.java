@@ -1,10 +1,13 @@
 // SOURCES:
-// https://coderanch.com/t/40/676573/engineering/Building-computer-compiler
-// https://github.com/carlosrevespt/Simpletron/blob/version3/SMLProcessor.java
-// https://www.geeksforgeeks.org/bitwise-shift-operators-in-java/
-// https://www.geeksforgeeks.org/1s-2s-complement-binary-number/
+// [1] https://coderanch.com/t/40/676573/engineering/Building-computer-compiler
+// [2] https://github.com/carlosrevespt/Simpletron/blob/version3/SMLProcessor.java
+// [3] https://www.geeksforgeeks.org/bitwise-shift-operators-in-java/
+// [4] https://www.geeksforgeeks.org/1s-2s-complement-binary-number/
+// [5] https://www.geeksforgeeks.org/bitwise-shift-operators-in-java/
+// [6] https://stackoverflow.com/questions/16040601/why-is-nextline-returning-an-empty-string
 
 import java.util.Scanner;
+import java.lang.StringBuilder;
 
 public class SimpletronEnhanced {
 	private static final int MEMORY_SIZE = 1000;
@@ -17,12 +20,17 @@ public class SimpletronEnhanced {
 	// SML OPERATION CODES
 	private static final int READ = 0x10;
 	private static final int WRITE = 0x11;
+	private static final int NEWLINE = 0x12;
+	private static final int READ_STRING = 0x13;
+	private static final int WRITE_STRING = 0x14;
 	private static final int LOAD = 0x20;
 	private static final int STORE = 0x21;
 	private static final int ADD = 0x30;
 	private static final int SUBTRACT = 0x31;
 	private static final int DIVIDE = 0x32;
 	private static final int MULTIPLY = 0x33;
+	private static final int REMAINDER = 0x34;
+	private static final int POWER = 0x35; 
 	private static final int BRANCH = 0x40;
 	private static final int BRANCHNEG = 0x41;
 	private static final int BRANCHZERO = 0x42;
@@ -34,6 +42,8 @@ public class SimpletronEnhanced {
 	private static int operationCode = 0;
 	private static int operand = 0;
 	private static int instructionRegister = 0;
+	
+	private static final int halfWord = 8;
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -50,10 +60,50 @@ public class SimpletronEnhanced {
 		do {
 			// read into instructionRegister memory[instructionCounter] value
 			instructionRegister = memory[instructionCounter];
-			operationCode = instructionRegister >> 8;
+			operationCode = instructionRegister >> 8; // bitwise signed right shift operator
 			operand = instructionRegister & 0xff;  // bound to be between 00-FF --> 0 - 255
 			executeSMLInstruction(input);  		  // will modify the instructionCounter(, operationCode, accumulator)
 		} while((operationCode != HALT) && (instructionCounter < MEMORY_SIZE));
+	}
+	
+	// 7.38 (g)
+	// inputString = "Hakan"
+	private static void storeString(String inputString) {
+		int stringLength = inputString.length(); // 5
+		if(stringLength == 0) {
+			return; // do nothing
+		}
+		accumulator = stringLength << halfWord;  // 0x500 --> 1280
+		accumulator += inputString.charAt(0); // 1352 --> 0x548 --> 'H' character ASCII equivalent is decimal 72 --> 0x48, first char 'H' is stored in to the memory
+		memory[operand] = accumulator; // 0x548
+		++operand; // move to the next word in memory
+		
+		// the first char in the inputString has been handled on line 76.
+		// that's why charIndex starts from 1 in the for loop
+		for(int charIndex = 1; charIndex < stringLength ; charIndex += 2) {
+			accumulator = inputString.charAt(charIndex) << halfWord; // 'a' = 97 in decimal = 0x61
+			if(charIndex + 1 < stringLength) {
+				accumulator += inputString.charAt(charIndex + 1); // 'k' = 107 in decimal = 0x6B
+			}
+			memory[operand] = accumulator; // 0x616B
+			++operand; // move to the next Simpletron word in memory
+		}
+		
+	}
+	
+	private static String getString() {
+		int stringLength = memory[operand] >> halfWord; // the first half word is the length of the string
+		StringBuilder buffer = new StringBuilder(stringLength); // initial buffer capacity of stringLength
+		
+		for(int charIndex = 0; charIndex < stringLength; ++charIndex) {
+			if(charIndex % 2 == 0) {
+				buffer.append((char) (memory[operand] & 0xFF));
+				++operand; // move to the next Simpletron word in memory
+			} else {
+				buffer.append((char) (memory[operand] >> halfWord));
+			}
+		}
+		return buffer.toString();
 	}
 	
 	// executes the instruction stored in the instructionRegister, operationCode and operand
@@ -70,6 +120,21 @@ public class SimpletronEnhanced {
 				System.out.printf("memory[0x%-5s]: 0x%-5s%n", 
 						Integer.toString(operand, BASE_16).toUpperCase(), 
 						Integer.toString(wordHex, BASE_16).toUpperCase());
+				++instructionCounter;
+				break;
+			case NEWLINE:
+				System.out.println();
+				++instructionCounter;
+				break;
+			case READ_STRING:
+				System.out.print("Enter a string: ");
+				String inputString = input.nextLine();
+				storeString(inputString);
+				++instructionCounter;
+				break;
+			case WRITE_STRING:
+				String string = getString();
+				System.out.printf("%nString stored is: %s%n", string);
 				++instructionCounter;
 				break;
 			case LOAD: // TESTED
@@ -132,6 +197,28 @@ public class SimpletronEnhanced {
 					++instructionCounter;   // move to the next instruction in memory
 				}
 				break;
+			case REMAINDER: // TESTED
+				// Remainder a word from a specific location in memory by the word in the accumulator
+				// Leave the result in accumulator
+				if(memory[operand] == 0) { // remainder operation would throw ArithmeticException
+					printErrorMessage("*** REMAINDER command would cause a division by zero  ***");
+					operationCode = HALT;			
+				} else {
+					accumulator %= memory[operand];
+					++instructionCounter;
+				}
+				break;
+			case POWER:
+				temporary = (int) Math.pow(accumulator, memory[operand]); // TODO: I am not sure about int down casting. is this a valid solution?
+				if((temporary < MIN_VALID_WORD ) || (temporary > MAX_VALID_WORD)) { // addition would cause accumulator overflow
+					printErrorMessage("*** POWER command would cause an overflow in accumulator ***");
+					operationCode = HALT;
+					// leave instructionCounter at its current value so that user can pinpoint his error
+				} else { // no accumulator overflow
+					accumulator = temporary;
+					++instructionCounter;   // move to the next instruction in memory
+				}
+				break;
 			case BRANCH: // TESTED
 				// branch to a specific location in memory
 				instructionCounter = operand; // operand with values 00-99
@@ -171,7 +258,7 @@ public class SimpletronEnhanced {
 	private static int readValidSMLWord(int loadingCounter, Scanner input) {
 
 		System.out.printf("0x%-5s ? ", Integer.toString(loadingCounter, BASE_16).toUpperCase());
-		int word = input.nextInt(BASE_16);
+		int word = Integer.parseInt(input.nextLine(), BASE_16);
 		boolean isValid = (((word >= MIN_VALID_WORD) && (word <= MAX_VALID_WORD)));
 		while(!isValid) {
 			System.out.printf("Invalid SML instruction or data. Instruction must be in [0x%-5s, 0x%-5s] range. %n", 
@@ -179,7 +266,7 @@ public class SimpletronEnhanced {
 					Integer.toString(MAX_VALID_WORD, BASE_16).toUpperCase()
 			);
 			System.out.printf("0x%-5s ? ", Integer.toString(loadingCounter, BASE_16).toUpperCase());
-			word = input.nextInt(BASE_16);
+			word = Integer.parseInt(input.nextLine(), BASE_16);
 			isValid = (((word >= MIN_VALID_WORD) && (word <= MAX_VALID_WORD)));
 		}
 
@@ -220,7 +307,7 @@ public class SimpletronEnhanced {
 	private static int readValidInstruction(int loadingCounter, Scanner input) {
 
 		System.out.printf("0x%-5s ? ", Integer.toString(loadingCounter, BASE_16).toUpperCase());
-		int instruction = input.nextInt(BASE_16);
+		int instruction = Integer.parseInt(input.nextLine(), BASE_16); // Refer to [6]
 		boolean isValid = (((instruction >= MIN_VALID_WORD) && (instruction <= MAX_VALID_WORD)) || (instruction == SENTINEL));
 		while(!isValid) {
 			System.out.printf("Invalid SML instruction or data. Instruction must be in [0x%-5s, 0x%-5s] range. Or sentinel 0x%-5s. %n", 
@@ -229,7 +316,7 @@ public class SimpletronEnhanced {
 					Integer.toString(SENTINEL, BASE_16).toUpperCase()
 			);
 			System.out.printf("0x%-5s ? ", Integer.toString(loadingCounter, BASE_16).toUpperCase());
-			instruction = input.nextInt(BASE_16);
+			instruction = Integer.parseInt(input.nextLine(), BASE_16); // Refer to [6]
 			isValid = (((instruction >= MIN_VALID_WORD) && (instruction <= MAX_VALID_WORD)) || (instruction == SENTINEL));
 		}
 
