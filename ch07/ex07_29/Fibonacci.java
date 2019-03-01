@@ -93,7 +93,7 @@ public class Fibonacci {
 				}
 		}
 		
-		// the last element in the fibonacci series may be Double.POSITIVE_INFINITY and its index could be less than n (i.e. 300)
+		// the last element in the fibonacci series may be Double.POSITIVE_INFINITY and its index could be less than n (i.e. 3000)
 		// if we accessed the fibonacciSeries via n-1 we would get ArrayIndexOutOfBoundsException
 		// instead, we return the last valid fibonacciSeries arrays element
 		System.out.printf("fibonacci_c(%d) returns %.0f%n", n, fibonacciSeries.get(fibonacciSeries.size() - 1));

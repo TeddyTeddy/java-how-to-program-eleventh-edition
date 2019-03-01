@@ -58,7 +58,7 @@ public class Craps {
 	   	// measurement m = roll
 	   	// calculate weighting factor of each roll
 		   double weight = ((double) wins[roll] / winsTotal );
-		   weightedSum += roll * weight;
+		   weightedSum += roll * weight; // m1 * w1
 		   weightSum += weight; 
 	   }
 	   
@@ -76,7 +76,7 @@ public class Craps {
 	   	// measurement m = roll
 	   	// calculate weighting factor of each roll
 		   double weight = ((double) loses[roll] / losesTotal );
-		   weightedSum += roll * weight;
+		   weightedSum += roll * weight; // m1 * w1
 		   weightSum += weight; 
 	   }
 	   
@@ -160,7 +160,7 @@ public class Craps {
 	      }
 
 	      // while game is not complete
-	      int rollCount = 2; // first roll of dices played in the above lines 93-113
+	      int rollCount = 2; // first roll of dices played in the above lines 140-160
 	      while (gameStatus == Status.CONTINUE) { // not WON or LOST
 	         sumOfDice = rollDice(); // roll dice again
 
