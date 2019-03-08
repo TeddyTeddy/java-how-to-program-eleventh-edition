@@ -5,6 +5,7 @@
 // [4] https://www.geeksforgeeks.org/1s-2s-complement-binary-number/
 // [5] https://www.geeksforgeeks.org/bitwise-shift-operators-in-java/
 // [6] https://stackoverflow.com/questions/16040601/why-is-nextline-returning-an-empty-string
+// [7] https://stackoverflow.com/questions/3834468/java-reading-hex-values-into-an-array-of-type-int
 
 import java.util.Scanner;
 import java.lang.StringBuilder;
@@ -307,7 +308,7 @@ public class SimpletronEnhanced {
 	private static int readValidInstruction(int loadingCounter, Scanner input) {
 
 		System.out.printf("0x%-5s ? ", Integer.toString(loadingCounter, BASE_16).toUpperCase());
-		int instruction = Integer.parseInt(input.nextLine(), BASE_16); // Refer to [6]
+		int instruction = Integer.parseInt(input.nextLine(), BASE_16); // Refer to [6] & [7]
 		boolean isValid = (((instruction >= MIN_VALID_WORD) && (instruction <= MAX_VALID_WORD)) || (instruction == SENTINEL));
 		while(!isValid) {
 			System.out.printf("Invalid SML instruction or data. Instruction must be in [0x%-5s, 0x%-5s] range. Or sentinel 0x%-5s. %n", 

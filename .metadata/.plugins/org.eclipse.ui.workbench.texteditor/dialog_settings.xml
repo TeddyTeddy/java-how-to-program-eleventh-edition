@@ -2,12 +2,15 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="getMemoryLocation" key="selection"/>
+		<item value="Date2" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Date"/>
+			<item value="Time2"/>
+			<item value="Time2Test"/>
 			<item value="getMemoryLocation"/>
 			<item value="range"/>
 			<item value="arithmeticProblem"/>
@@ -19,6 +22,9 @@
 			<item value="digit"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Date2"/>
+			<item value="Time3"/>
+			<item value="Time3Test"/>
 			<item value="counters"/>
 			<item value="problemType"/>
 			<item value="fourDigitValue"/>

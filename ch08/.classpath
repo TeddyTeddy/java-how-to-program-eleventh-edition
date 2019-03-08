@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="fig08_01_02"/>
+	<classpathentry kind="src" path="fig08_03"/>
+	<classpathentry kind="src" path="fig08_04"/>
+	<classpathentry kind="src" path="fig08_07_09"/>
+	<classpathentry kind="src" path="fig08_10_11"/>
+	<classpathentry kind="src" path="fig08_12_13"/>
+	<classpathentry kind="src" path="fig08_14"/>
+	<classpathentry kind="src" path="fig08_15"/>
+	<classpathentry kind="src" path="fig08_16"/>
+	<classpathentry kind="src" path="GUIGraphicsCaseStudy08"/>
+	<classpathentry kind="src" path="ex8_4"/>
+	<classpathentry kind="src" path="ex08_05"/>
+	<classpathentry kind="src" path="ex08_06"/>
+	<classpathentry kind="src" path="ex08_07"/>
+	<classpathentry kind="src" path="ex08_08"/>
+	<classpathentry kind="src" path="ex08_09"/>
+	<classpathentry kind="src" path="ex08_10"/>
+	<classpathentry kind="src" path="ex08_11"/>
+	<classpathentry kind="src" path="ex08_12"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
