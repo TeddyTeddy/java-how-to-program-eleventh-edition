@@ -24,5 +24,7 @@
 	<classpathentry kind="src" path="ex08_10"/>
 	<classpathentry kind="src" path="ex08_11"/>
 	<classpathentry kind="src" path="ex08_12"/>
+	<classpathentry kind="src" path="ex08_14"/>
+	<classpathentry kind="src" path="ex08_15"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

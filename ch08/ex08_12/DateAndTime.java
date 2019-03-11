@@ -3,6 +3,12 @@ class DateAndTime {
 	// static variables
 	public static final int MAX_YEAR = 2210;
 	
+	private static final int[] daysPerMonthNoLeapYar = 
+		      {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		   
+	private static final int[] daysPerMonthWithLeapYar = 
+			  {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; // note the Feb 29
+	
 	// date instance variables
 	private int month; // 1-12
 	private int day; // 1-31 based on month
@@ -13,12 +19,11 @@ class DateAndTime {
 	private int minute; // 0 - 59
 	private int second; // 0 - 59
 
-	private static final int[] daysPerMonth = 
-	{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	private static boolean isLeapYear(int year) {
+		return (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0));
+	}
 	   
-	// constructor: confirm proper value for month and day given the year
-	// 				confirm proper value for hour, minute and second
-	public DateAndTime(int month, int day, int year, int hour, int minute, int second) {
+	private static void verify(int month, int day, int year, int hour, int minute, int second) {
 		// check if month in range
 	    if (month <= 0 || month > 12) {
 	       throw new IllegalArgumentException(
@@ -27,14 +32,13 @@ class DateAndTime {
 
 	    // check if day in range for month
 	    if (day <= 0 || 
-	       (day > daysPerMonth[month] && !(month == 2 && day == 29))) {
+	       (day > daysPerMonthNoLeapYar[month] && !(month == 2 && day == 29)) ) {
 	         throw new IllegalArgumentException("day (" + day + 
 	            ") out-of-range for the specified month and year");
 	    }
 
 	    // check for leap year if month is 2 and day is 29
-	    if (month == 2 && day == 29 && !(year % 400 == 0 || 
-	       (year % 4 == 0 && year % 100 != 0))) {
+	    if (month == 2 && day == 29 && !isLeapYear(year) ) {
 	         throw new IllegalArgumentException("day (" + day +
 	            ") out-of-range for the specified month and year");
 	    }
@@ -56,7 +60,13 @@ class DateAndTime {
 	    if (second < 0 || second >= 60) {
 	        throw new IllegalArgumentException("second must be 0-59");
 	    }
-	    
+		
+	}
+	   
+	// constructor: confirm proper value for month and day given the year
+	// 				confirm proper value for hour, minute and second
+	public DateAndTime(int month, int day, int year, int hour, int minute, int second) {
+		verify(month, day, year, hour, minute, second);
 	    this.month = month;
 	    this.day = day;
 	    this.year = year;
@@ -70,6 +80,9 @@ class DateAndTime {
 	   
 	// sets the day (and month and year)
 	public void nextDay() throws Exception {
+		
+		int[] daysPerMonth = isLeapYear(year) ? daysPerMonthWithLeapYar : daysPerMonthWithLeapYar;
+		
 		int nextYear = year;
 		int nextMonth = month;
 		int nextDay = day + 1;

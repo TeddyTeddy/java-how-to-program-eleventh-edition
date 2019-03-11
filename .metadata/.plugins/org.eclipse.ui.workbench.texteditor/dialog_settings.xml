@@ -2,12 +2,15 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Date2" key="selection"/>
+		<item value="MAX_YEAR" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="maxYear"/>
+			<item value="Date2"/>
+			<item value="DateAndTime"/>
 			<item value="Date"/>
 			<item value="Time2"/>
 			<item value="Time2Test"/>
@@ -22,6 +25,8 @@
 			<item value="digit"/>
 		</list>
 		<list key="replacehistory">
+			<item value="MAX_YEAR"/>
+			<item value="DateAndTime"/>
 			<item value="Date2"/>
 			<item value="Time3"/>
 			<item value="Time3Test"/>

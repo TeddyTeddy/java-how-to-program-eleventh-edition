@@ -19,7 +19,19 @@ public class DateAndTimeTest {
 		//					       month, day, year, 					hour, minute, second		
 		dateTime = new DateAndTime(12,    31, DateAndTime.MAX_YEAR - 1,   20,     59,     59);
 		testTick(dateTime); // tick() will move the date the last acceptable year: 1/1/2210 12:00:00 AM	
-		
+
+		//					       month, day, year, 					hour, minute, second		
+		dateTime = new DateAndTime(12,    31, 2000,   					23,     59,     59);
+		testTick(dateTime); // tick() will move the date the last acceptable year: 1/1/2210 12:00:00 AM	
+
+		//					       month, day, year, 					hour, minute, second		
+		dateTime = new DateAndTime(12,    30, 2000,   					23,     59,     59);
+		testTick(dateTime); // tick() will move the date the last acceptable year: 1/1/2210 12:00:00 AM	
+
+		//					       month, day, year, 					hour, minute, second		
+		dateTime = new DateAndTime(11,    30, 2000,   					23,     59,     59);
+		testTick(dateTime); // tick() will move the date the last acceptable year: 1/1/2210 12:00:00 AM	
+
 		System.out.printf("Date in (MM/DD/YY H:MM:SS AM/PM):   %s%n", dateTime);
 		System.out.printf("Date in (MM:DD:YY HH:MM:SS):        %s%n", dateTime.toUniversalString());		
 	}
