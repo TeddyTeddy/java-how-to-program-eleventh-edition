@@ -114,6 +114,8 @@ public class Date3Test {
 			  // month is ok, day is too little
 			  System.out.printf("Calling Date3(%s, %d, %d)%n", month, day, year);
 			  Date3 date = new Date3(month, day, year); // month/day/year
+			  System.out.println(date.formatMMDDYYYY());
+			  System.out.println(date.formatJune14_1992());
 		  } catch(IllegalArgumentException e) {
 			  System.out.printf("%s%n%n", e.getMessage());
 		  }

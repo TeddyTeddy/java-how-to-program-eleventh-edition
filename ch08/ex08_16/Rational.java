@@ -54,21 +54,22 @@ public class Rational {
 		// initialize
 		int absNumerator = Math.abs(r.numerator); // because numerator can be negative
 		int minimum = Math.min(absNumerator, r.denominator);
-		int commonFactor = 1;
-		int i = commonFactor;
+		int largestCommonFactor = 1; // smallest value that can divide both numerator and denominator with zero remainder
+		int i = largestCommonFactor;
 		
-		// look for a largest commonFactor dividing numerator and denominator with zero remainder
+		// in the range [1, minimum], look for a largest largestCommonFactor
+		// dividing numerator and denominator with zero remainder
 		while (i <= minimum) {
 			// if i divides both numerator & denominator with no remainder
 			if( ((r.numerator % i) == 0) && ((r.denominator % i) == 0) ) {
-				commonFactor = i;
+				largestCommonFactor = i; // we found a new largestCommonFactor
 			}
 			++i;
 		}
 		
 		// reduce
-		r.numerator   /= commonFactor;
-		r.denominator /= commonFactor;
+		r.numerator   /= largestCommonFactor;
+		r.denominator /= largestCommonFactor;
 	}
 	
 	public String floatingPoint(int digitsOfPrecision) {

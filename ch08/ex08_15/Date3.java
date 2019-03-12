@@ -5,6 +5,7 @@ public class Date3 {
    private int month; // 1-12
    private int day; // 1-31 based on month
    private int year; // any year
+   private String monthString;
 
    private static final int[] daysPerMonthNoLeapYar = 
       {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -20,12 +21,12 @@ public class Date3 {
 	   // dayNumber must be in the correct range
 	   int maxDays = isLeapYear(year) ? DAYS_OF_LEAP_YEAR : DAYS_OF_NO_LEAP_YEAR;
 	   if((dayNumber <= 0) || (dayNumber > maxDays)) {
-	         throw new IllegalArgumentException("dayNumber (" + dayNumber + ") out-of-range 1-366");		   
+	         throw new IllegalArgumentException("dayNumber (" + dayNumber + ") out-of-range 1-" + maxDays);		   
 	   }
 	   // valid dayNumber
 	   // get day & month from dayNumber
 	   // initialize
-	   int month = 1;
+	   int month = 1; // Start with January
 	   int[] daysPerMonth = isLeapYear(year) ? daysPerMonthWithLeapYar : daysPerMonthNoLeapYar;
 	   // figure out which month we are in for the current dayNumber
 	   while ( dayNumber > daysPerMonth[month] ) { // is dayNumber such that we are in the month+1 ? (i.e. am i in February?)
@@ -114,7 +115,7 @@ public class Date3 {
 	   			month = 12;
 	   			break;
 	   		default:
-	            throw new IllegalArgumentException("Month not recognized. (" + monthString + ") must start with a capital letter (i.e. November)");
+	            throw new IllegalArgumentException("Month ( " + monthString + ") not recognized. Month must start with a capital letter (i.e. November)");
 	   			
 	   }
 	   
@@ -122,7 +123,7 @@ public class Date3 {
 	   this.month = month;
 	   this.day = day;
 	   this.year = year;
-
+	   this.monthString = monthString;
 	   System.out.printf("Date3 object constructor for Date3 %s%n", this);
    }
    
@@ -162,6 +163,13 @@ public class Date3 {
 	   year = nextYear;
    }
    
+   public String formatMMDDYYYY() {
+	   return String.format("%02d/%02d/%d", month, day, year);
+   }
+   
+   public String formatJune14_1992() {
+	   return String.format("%s %d, %d", monthString, day, year);
+   }
    // return a String of the form month/day/year
    public String toString() {
       return String.format("%d/%d/%d", month, day, year); 
