@@ -2,12 +2,17 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="MAX_YEAR" key="selection"/>
+		<item value="headA" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="subA"/>
+			<item value="getSubA"/>
+			<item value="9999999999999999999999999999999999999999"/>
+			<item value="testIsGreaterThan"/>
+			<item value="testIsLessThan"/>
 			<item value="maxYear"/>
 			<item value="Date2"/>
 			<item value="DateAndTime"/>
@@ -18,13 +23,11 @@
 			<item value="range"/>
 			<item value="arithmeticProblem"/>
 			<item value="binaryValue"/>
-			<item value="1stDigit"/>
-			<item value="2ndDigit"/>
-			<item value="4thDigit"/>
-			<item value="5thDigit"/>
-			<item value="digit"/>
 		</list>
 		<list key="replacehistory">
+			<item value="headA"/>
+			<item value="getHeadA"/>
+			<item value="testIsLessThan"/>
 			<item value="MAX_YEAR"/>
 			<item value="DateAndTime"/>
 			<item value="Date2"/>
@@ -37,7 +40,6 @@
 			<item value="secondDigit"/>
 			<item value="fourthDigit"/>
 			<item value="fifthDigit"/>
-			<item value="value"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
