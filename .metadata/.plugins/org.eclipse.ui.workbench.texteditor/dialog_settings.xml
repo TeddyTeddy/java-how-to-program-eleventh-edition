@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="headA" key="selection"/>
+		<item value="gameBoard" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="ttc"/>
 			<item value="subA"/>
 			<item value="getSubA"/>
 			<item value="9999999999999999999999999999999999999999"/>
@@ -22,9 +23,9 @@
 			<item value="getMemoryLocation"/>
 			<item value="range"/>
 			<item value="arithmeticProblem"/>
-			<item value="binaryValue"/>
 		</list>
 		<list key="replacehistory">
+			<item value="gameBoard"/>
 			<item value="headA"/>
 			<item value="getHeadA"/>
 			<item value="testIsLessThan"/>
@@ -39,7 +40,6 @@
 			<item value="firstDigit"/>
 			<item value="secondDigit"/>
 			<item value="fourthDigit"/>
-			<item value="fifthDigit"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

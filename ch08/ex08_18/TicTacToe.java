@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 enum BoardElement { X, O, EMPTY }
 
 enum GameState { WON, DRAW, CONTINUE }
@@ -18,6 +20,44 @@ class GameStatus {
 	String getWinner() {
 		return winner;
 	}
+}
+
+class BoardElementDetails {
+	private static final int INITIAL_INDEX = -1;
+	private int row; // 0-SIZE-1
+	private int column; // 0-SIZE-1
+	
+	BoardElementDetails() throws Exception {
+		this(INITIAL_INDEX, INITIAL_INDEX);
+	}
+	
+	BoardElementDetails(int row, int column) throws Exception {
+		if( (row != INITIAL_INDEX) && ((row < 0) || (row >= TicTacToe.SIZE)) ) {
+			throw new Exception("BoardElementDetails() exception: row " + row + " has to be in between 0-" + (TicTacToe.SIZE -1) );
+		}
+		if( (column != INITIAL_INDEX) && ((column < 0) || (column >= TicTacToe.SIZE)) ) {
+			throw new Exception("BoardElementDetails() exception: column " + column + " has to be in between 0-" + (TicTacToe.SIZE -1) );
+		}
+		this.row = row;
+		this.column = column;
+	}
+	
+	void setRow(int row) {
+		this.row = row;
+	}
+	
+	int getRow() {
+		return row;
+	}
+	
+	void setColumn(int column) {
+		this.column = column;
+	}
+	
+	int getColumn() {
+		return column;
+	}
+	
 }
 
 class TicTacToe {
@@ -52,6 +92,37 @@ class TicTacToe {
 		}
 		
 		return status; // must never return null
+	}
+	
+	public boolean isWinningSoon(BoardElement playerMark, BoardElementDetails winningBoardElement) throws Exception {
+		boolean isWinningSoon = false;
+		// get all the current empty elements
+		ArrayList<BoardElementDetails> winnerCandidates = getEmptyBoardElements();
+		for(BoardElementDetails e : winnerCandidates) {
+			// set temporarily boards element, which corresponds to e's row and column, the playerMark 
+			board[e.getRow()][e.getColumn()] = playerMark;
+			isWinningSoon = checkHasPlayerWon( playerMark );
+			if(isWinningSoon) {
+				winningBoardElement.setRow(e.getRow());
+				winningBoardElement.setColumn(e.getColumn());
+				board[e.getRow()][e.getColumn()] = BoardElement.EMPTY; // set temporary board element (e's board element) back to EMPTY;
+				break;
+			}
+			board[e.getRow()][e.getColumn()] = BoardElement.EMPTY; // set temporary board element back to EMPTY;
+		}
+		return isWinningSoon;
+	}
+	
+	public ArrayList<BoardElementDetails> getEmptyBoardElements() throws Exception {
+		ArrayList<BoardElementDetails> emptyBoardElements = new ArrayList<BoardElementDetails>(SIZE*SIZE);
+		for(int i = 0; i < SIZE; ++i) {
+			for(int j = 0; j < SIZE; ++j) {
+				if ( board[i][j] == BoardElement.EMPTY ) {
+					emptyBoardElements.add(new BoardElementDetails(i , j));
+				}
+			}
+		}
+		return emptyBoardElements;
 	}
 	
 	private boolean isBoardFullyMarked() {
@@ -120,17 +191,16 @@ class TicTacToe {
 		return isHorizontalWinner;
 	}
 	
-	
+	// accepts row in [0-2]
+	// accepts column in [0-2]
 	public boolean mark(int row, int column, BoardElement be) throws Exception {
-		if( (row < 1) || (row > SIZE) ) {
-			throw new Exception("mark() exception: row index " + row + " must be in range [1,3]");
+		if( (row < 0) || (row >= SIZE) ) {
+			throw new Exception("mark() exception: row index " + row + " must be in range [0,2]");
 		}
-		if( (row < 1) || (row > SIZE) ) {
-			throw new Exception("mark() exception: column index " + column + " must be in range [1,3]");
+		if( (row < 0) || (row >= SIZE) ) {
+			throw new Exception("mark() exception: column index " + column + " must be in range [0,2]");
 		}
 		
-		--row;
-		--column;
 		boolean markingSuccessful = false;
 		if(board[row][column] == BoardElement.EMPTY) {
 			board[row][column] = be;
@@ -144,12 +214,12 @@ class TicTacToe {
 		
 		result = "  ";
 		for(int i = 0; i < SIZE; ++i) {
-			result += String.format(" %d ", i+1);
+			result += String.format(" %d ", i);
 		}
 		result += "\n";
 		
 		for(int i = 0; i < SIZE; ++i) {
-			result += String.format("%d ", i+1);
+			result += String.format("%d ", i);
 			for(int j = 0; j < SIZE; ++j) {
 				switch( board[i][j] ) {
 					case X: 
