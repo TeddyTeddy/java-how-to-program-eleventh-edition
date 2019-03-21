@@ -8,9 +8,7 @@
 	<classpathentry kind="src" path="fig08_01_02"/>
 	<classpathentry kind="src" path="fig08_03"/>
 	<classpathentry kind="src" path="fig08_04"/>
-	<classpathentry kind="src" path="fig08_07_09"/>
 	<classpathentry kind="src" path="fig08_10_11"/>
-	<classpathentry kind="src" path="fig08_12_13"/>
 	<classpathentry kind="src" path="fig08_14"/>
 	<classpathentry kind="src" path="fig08_15"/>
 	<classpathentry kind="src" path="fig08_16"/>
@@ -30,5 +28,6 @@
 	<classpathentry kind="src" path="ex08_17"/>
 	<classpathentry kind="src" path="ex08_18"/>
 	<classpathentry kind="src" path="ex08_19"/>
+	<classpathentry kind="src" path="ex08_20"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
