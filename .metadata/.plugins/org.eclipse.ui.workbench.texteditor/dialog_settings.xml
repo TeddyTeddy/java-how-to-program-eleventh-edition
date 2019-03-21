@@ -2,12 +2,16 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="gameBoard" key="selection"/>
-		<item value="false" key="casesensitive"/>
+		<item value="BoardElementDetails" key="selection"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="WinningBoardElement"/>
+			<item value="BoardElement"/>
+			<item value="GameStatus"/>
+			<item value="INVALID_INDEX"/>
 			<item value="ttc"/>
 			<item value="subA"/>
 			<item value="getSubA"/>
@@ -19,12 +23,11 @@
 			<item value="DateAndTime"/>
 			<item value="Date"/>
 			<item value="Time2"/>
-			<item value="Time2Test"/>
-			<item value="getMemoryLocation"/>
-			<item value="range"/>
-			<item value="arithmeticProblem"/>
 		</list>
 		<list key="replacehistory">
+			<item value="BoardElementDetails"/>
+			<item value="BoardElement"/>
+			<item value="INITIAL_INDEX"/>
 			<item value="gameBoard"/>
 			<item value="headA"/>
 			<item value="getHeadA"/>
@@ -37,9 +40,6 @@
 			<item value="counters"/>
 			<item value="problemType"/>
 			<item value="fourDigitValue"/>
-			<item value="firstDigit"/>
-			<item value="secondDigit"/>
-			<item value="fourthDigit"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

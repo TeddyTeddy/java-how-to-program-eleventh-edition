@@ -78,7 +78,7 @@ class TicTacToe {
 	public GameStatus getGameStatus() {
 		// check has X won
 		boolean hasXWon = checkHasPlayerWon( BoardElement.X );
-		boolean hasOWon = checkHasPlayerWon( BoardElement.O );
+		boolean hasOWon = hasXWon ? false : checkHasPlayerWon( BoardElement.O );
 		GameStatus status = null;
 		
 		if(hasXWon) {
@@ -195,10 +195,10 @@ class TicTacToe {
 	// accepts column in [0-2]
 	public boolean mark(int row, int column, BoardElement be) throws Exception {
 		if( (row < 0) || (row >= SIZE) ) {
-			throw new Exception("mark() exception: row index " + row + " must be in range [0,2]");
+			throw new Exception("mark() exception: row index " + row + " must be in range [0,2]"); // this code should never execute
 		}
 		if( (row < 0) || (row >= SIZE) ) {
-			throw new Exception("mark() exception: column index " + column + " must be in range [0,2]");
+			throw new Exception("mark() exception: column index " + column + " must be in range [0,2]"); // this code should never execute
 		}
 		
 		boolean markingSuccessful = false;

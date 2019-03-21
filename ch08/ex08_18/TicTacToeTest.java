@@ -18,11 +18,11 @@ public class TicTacToeTest {
 				if(move % 2 != 0) { // if move is an odd number, use player 1 variables
 					makeComputerMove( gameBoard );
 				} else {// if move is an even number, use player 2 variables
-					makePlayerMove("Your turn:", human, gameBoard, input);
+					makePlayerMove(human, gameBoard, input);
 				}		
 			} else if(human == BoardElement.X) {
 				if(move % 2 != 0) { // if move is an odd number, human plays
-					makePlayerMove("Your turn:", human, gameBoard, input);
+					makePlayerMove(human, gameBoard, input);
 				} else {// if move is an even number, computer plays
 					makeComputerMove( gameBoard );
 				}					
@@ -57,18 +57,18 @@ public class TicTacToeTest {
 	
 	private static void makeComputerMove(TicTacToe gameBoard) {
 		try {
-			BoardElementDetails winnerBoardElement = new BoardElementDetails(); // create with invalid row & column indexes
-			boolean isHumanWinningSoon = gameBoard.isWinningSoon(human, winnerBoardElement);
-			boolean isComputerWinningSoon = gameBoard.isWinningSoon(computer, winnerBoardElement);
+			BoardElementDetails winnerBoardElementHuman = new BoardElementDetails(); // create with invalid row & column indexes
+			boolean isHumanWinningSoon = gameBoard.isWinningSoon(human, winnerBoardElementHuman);
+			
+			BoardElementDetails winnerBoardElementComputer = new BoardElementDetails(); // create with invalid row & column indexes	
+			boolean isComputerWinningSoon = gameBoard.isWinningSoon(computer, winnerBoardElementComputer);
 			
 			if(isHumanWinningSoon && isComputerWinningSoon) { // prefer computer victory
-				// update winnerBoardElement
-				gameBoard.isWinningSoon(computer, winnerBoardElement);
-				makeMove(computer, winnerBoardElement, gameBoard); // make computer to move to the winner board element
-			} else if( gameBoard.isWinningSoon(human, winnerBoardElement) ) { // is opponent winning soon?
-				makeMove(computer, winnerBoardElement, gameBoard); // make computer to move to the winner board element
-			} else if( gameBoard.isWinningSoon(computer, winnerBoardElement) ) { // is computer winning soon?
-				makeMove(computer, winnerBoardElement, gameBoard);  // computer places to the winnerBoardElement
+				makeMove(computer, winnerBoardElementComputer, gameBoard); // make computer to move to the winner board element
+			} else if( isHumanWinningSoon ) {
+				makeMove(computer, winnerBoardElementHuman, gameBoard); // make computer to move to the winner board element
+			} else if( isComputerWinningSoon ) { // is computer winning soon?
+				makeMove(computer, winnerBoardElementComputer, gameBoard);  // computer places to the winnerBoardElement
 			} else {
 				makeMoveInPriority(computer, gameBoard);
 			}
@@ -106,20 +106,20 @@ public class TicTacToeTest {
 		}
 	}
 	
-	private static void makePlayerMove(String playerName, BoardElement be, TicTacToe gameBoard, Scanner input) {
+	private static void makePlayerMove(BoardElement playerMark, TicTacToe gameBoard, Scanner input) {
 		
 		try {
 			boolean markingSuccessful = false;
 			while(!markingSuccessful) {
-				System.out.println(playerName);
+				System.out.println("Your turn: ");
 				int row =    getIndex("Enter row index: ", input);    // enter row between 0-2
 				int column = getIndex("Enter column index: ", input); // enter column between 0-2
-				markingSuccessful = gameBoard.mark(row, column, be);  // throws an Exception if row / column invalid
+				markingSuccessful = gameBoard.mark(row, column, playerMark);  // throws an Exception if row / column invalid
 				if(markingSuccessful) {
 					System.out.println("After your move the board is: ");
 					System.out.printf("%s", gameBoard);					
 				} else {
-					System.out.printf("%nError: Each move must be to an empty square.%nPlease re-enter row and column indexes for %s%n", playerName);
+					System.out.printf("%nError: Each move must be to an empty square.%nPlease re-enter row and column indexes");
 				}
 			}
 			
