@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="ex09_08"/>
-	<classpathentry kind="src" path="ex09_15"/>
+	<classpathentry kind="src" path="ex09_16"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
