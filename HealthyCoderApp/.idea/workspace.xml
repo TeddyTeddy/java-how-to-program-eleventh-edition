@@ -3,16 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2c06bae4-d2fe-4d66-a74c-0ecf2431500c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HealthyCoderApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HealthyCoderApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/HealthyCoderApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/HealthyCoderApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/healthycoderapp/BMICalculator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/healthycoderapp/BMICalculatorTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/healthycoderapp/Coder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/healthycoderapp/DietPlan.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/healthycoderapp/DietPlanner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/healthycoderapp/Gender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/healthycoderapp/BMICalculatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/healthycoderapp/BMICalculatorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/com/healthycoderapp/DietPlannerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/com/healthycoderapp/DietPlannerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/com/healthycoderapp/BMICalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/healthycoderapp/BMICalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/com/healthycoderapp/src/main/java/com/healthycoderapp/DietPlannerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/healthycoderapp/src/main/java/com/healthycoderapp/DietPlannerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -32,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/healthycoderapp/BMICalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+            <state relative-caret-position="180">
+              <caret line="22" column="39" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -41,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/com/healthycoderapp/BMICalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+            <state relative-caret-position="83">
+              <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,7 +48,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/healthycoderapp/DietPlanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
+            <state relative-caret-position="-15">
               <caret line="2" column="24" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="24" />
             </state>
           </provider>
@@ -62,9 +57,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/com/healthycoderapp/src/main/java/com/healthycoderapp/DietPlannerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+            <state relative-caret-position="180">
+              <caret line="27" column="67" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#555#556#0" expanded="true" />
                 <element signature="e#618#619#0" expanded="true" />
               </folding>
@@ -116,8 +112,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/test/com/healthycoderapp/src/main/java/com/healthycoderapp/CoderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/healthycoderapp/DietPlanner.java" />
-        <option value="$PROJECT_DIR$/src/test/com/healthycoderapp/src/main/java/com/healthycoderapp/DietPlannerTest.java" />
         <option value="$PROJECT_DIR$/src/test/resources/diet-recommended-input-data.csv" />
+        <option value="$PROJECT_DIR$/src/test/com/healthycoderapp/src/main/java/com/healthycoderapp/DietPlannerTest.java" />
         <option value="$PROJECT_DIR$/src/test/com/healthycoderapp/BMICalculatorTest.java" />
       </list>
     </option>
@@ -142,48 +138,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="HealthyCoderApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HealthyCoderApp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HealthyCoderApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HealthyCoderApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HealthyCoderApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HealthyCoderApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HealthyCoderApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HealthyCoderApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="healthycoderapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HealthyCoderApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HealthyCoderApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HealthyCoderApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HealthyCoderApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="healthycoderapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
@@ -193,7 +148,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553692842377" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553696669952" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -282,40 +237,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BMICalculatorTest - 2019.03.27 at 15h 04m 05s.xml">
+    <history-entry file="BMICalculatorTest - 2019.03.27 at 15h 45m 56s.xml">
       <configuration name="BMICalculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BMICalculatorTest - 2019.03.27 at 15h 04m 34s.xml">
+    <history-entry file="BMICalculatorTest - 2019.03.27 at 15h 52m 27s.xml">
       <configuration name="BMICalculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BMICalculatorTest - 2019.03.27 at 15h 05m 07s.xml">
+    <history-entry file="BMICalculatorTest - 2019.03.27 at 15h 53m 38s.xml">
       <configuration name="BMICalculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DietPlannerTest - 2019.03.27 at 15h 06m 28s.xml">
-      <configuration name="DietPlannerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BMICalculatorTest - 2019.03.27 at 15h 08m 35s.xml">
+    <history-entry file="BMICalculatorTest - 2019.03.27 at 16h 10m 05s.xml">
       <configuration name="BMICalculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BMICalculatorTest - 2019.03.27 at 15h 10m 01s.xml">
+    <history-entry file="BMICalculatorTest - 2019.03.27 at 16h 14m 03s.xml">
       <configuration name="BMICalculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BMICalculatorTest - 2019.03.27 at 15h 10m 52s.xml">
+    <history-entry file="BMICalculatorTest - 2019.03.27 at 16h 15m 24s.xml">
       <configuration name="BMICalculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CoderTest - 2019.03.27 at 15h 16m 00s.xml">
-      <configuration name="CoderTest" configurationId="JUnit" />
+    <history-entry file="BMICalculatorTest - 2019.03.27 at 16h 17m 42s.xml">
+      <configuration name="BMICalculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CoderTest - 2019.03.27 at 15h 16m 46s.xml">
-      <configuration name="CoderTest" configurationId="JUnit" />
+    <history-entry file="BMICalculatorTest - 2019.03.27 at 16h 22m 15s.xml">
+      <configuration name="BMICalculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BMICalculatorTest - 2019.03.27 at 15h 18m 48s.xml">
+    <history-entry file="BMICalculatorTest - 2019.03.27 at 16h 24m 00s.xml">
+      <configuration name="BMICalculatorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BMICalculatorTest - 2019.03.27 at 16h 24m 28s.xml">
       <configuration name="BMICalculatorTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26326394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -345,6 +299,35 @@
       <window_info anchor="right" id="Coverage" order="7" side_tool="true" weight="0.32975152" />
       <window_info anchor="right" id="Maven" order="8" weight="0.32975152" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26326394" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32947233" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49966422" visible="true" weight="0.32947233" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5003358" side_tool="true" weight="0.32947233" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32947233" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24983211" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Coverage" order="7" side_tool="true" weight="0.32975152" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.32975152" />
+    </layout-to-restore>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -355,13 +338,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/diet-recommended-input-data.csv" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/healthycoderapp/BMICalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/com/healthycoderapp/src/main/java/com/healthycoderapp/CoderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -383,24 +359,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/healthycoderapp/src/main/java/com/healthycoderapp/DietPlannerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-          <folding>
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#618#619#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/healthycoderapp/DietPlanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HealthyCoderApp.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -408,10 +366,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/healthycoderapp/DietPlanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/healthycoderapp/src/main/java/com/healthycoderapp/DietPlannerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="27" column="67" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/healthycoderapp/BMICalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/com/healthycoderapp/BMICalculatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+        <state relative-caret-position="83">
+          <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
