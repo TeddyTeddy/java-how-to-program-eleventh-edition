@@ -1,4 +1,4 @@
-public class HugeIntegerTest {
+public class HugeIntegerTest2 {
 	public static void main(String[] args) {
 
 		testHugeIntegerConstructor(); 
