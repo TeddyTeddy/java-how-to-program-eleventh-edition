@@ -1,22 +1,38 @@
 package com.healthycoderapp;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class BMICalculatorTest {
 
-    @Test
-    void shouldReturnTrueWhenDietRecommended() {
+    @BeforeAll
+    static void beforeAll() {
+        System.out.println("Before all unit tests");
+    }
+
+    @AfterAll
+    static void afterAll() {
+        System.out.println("After all unit tests");
+    }
+
+    @ParameterizedTest(name = "weight={0}, height={1}")
+    @CsvSource(value= {"89.0, 1.72", "95.0, 1.75", "110.0, 1.78"} )
+    void shouldReturnTrueWhenDietRecommended(Double coderWeight, Double coderHeight) {
         //given : initial conditions
-        double weight = 89.0;
-        double height = 1.72;
 
         //when
-        boolean isRecommended = BMICalculator.isDietRecommended(weight, height);
+        boolean isRecommended = BMICalculator.isDietRecommended(coderWeight, coderHeight);
 
         //then
         assertTrue(isRecommended);
