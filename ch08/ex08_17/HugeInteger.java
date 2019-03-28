@@ -553,7 +553,7 @@ public class HugeInteger {
 		return isAbsAGreaterThanAbsB;
 	}
 	
-	// overwritten
+	@Override
 	public String toString() {
 		String stringValue = isMinusSign ? "-" : "+";
 		for(int i : digits) {
