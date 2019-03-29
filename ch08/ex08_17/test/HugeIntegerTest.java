@@ -4,6 +4,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.api.function.Executable;
 
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class HugeIntegerTest {
@@ -58,6 +60,27 @@ class HugeIntegerTest {
             }
         }
 
+        @ParameterizedTest(name="a={0}, b={1}, aPlusB={2}")
+        @CsvFileSource(resources = "resources/valid-addition-arguments.csv", numLinesToSkip = 1)
+        void testAddPerformance(String aString, String bString, String expectedResult) {
+            try {
+                // given
+                HugeInteger a = new HugeInteger(aString);
+                HugeInteger b = new HugeInteger(bString);
+
+                // when
+                Executable executable = () -> {
+                    HugeInteger result = HugeInteger.add(a, b);
+                };
+
+                // then
+                assertTimeout(Duration.ofMillis(10), executable); // all addition operations must perform under 10 ms
+
+            } catch(Exception e) {
+                System.out.println(e.getMessage()); // should never run, coz a & b are legit
+            }
+        }
+
         @ParameterizedTest(name="a={0}, b={1}")
         @CsvFileSource(resources = "resources/overflowing-addition-arguments.csv", numLinesToSkip = 1)
         void testAddException(String aString, String bString) {
@@ -105,6 +128,20 @@ class HugeIntegerTest {
             // then
             assertFalse(isEqual);
         }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/isEqualTo-performance.csv", numLinesToSkip = 1)
+        void testIsEqualToPerformance(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            Executable e = () -> { boolean isEqual = HugeInteger.isEqualTo(a,b); };
+
+            // then
+            assertTimeout(Duration.ofMillis(2), e); // all isEqualTo calls must perform under 2 msecs
+        }
     }
 
     @Nested
@@ -136,13 +173,27 @@ class HugeIntegerTest {
             // then
             assertFalse(isGreaterThan);
         }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/isGreaterThan-performance.csv", numLinesToSkip = 1)
+        void testIsGreaterThanPerformance(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            Executable e = () -> { boolean isGreaterThan = HugeInteger.isGreaterThan(a,b); };
+
+            // then
+            assertTimeout(Duration.ofMillis(2), e); // all isGreaterThanCalls must perform under 2 msecs
+        }
     }
 
     @Nested
     class TestIsLessThanMethod {
         @ParameterizedTest(name="a={0}, b={1}")
         @CsvFileSource(resources = "resources/isLessThan-returns-true.csv", numLinesToSkip = 1)
-        void testIsGreaterThanReturnsTrue(String aString, String bString) {
+        void testIsLessThanReturnsTrue(String aString, String bString) {
             // given
             HugeInteger a = new HugeInteger(aString);
             HugeInteger b = new HugeInteger(bString);
@@ -156,7 +207,7 @@ class HugeIntegerTest {
 
         @ParameterizedTest(name="a={0}, b={1}")
         @CsvFileSource(resources = "resources/isLessThan-returns-false.csv", numLinesToSkip = 1)
-        void testIsGreaterThanReturnsFalse(String aString, String bString) {
+        void testIsLessThanReturnsFalse(String aString, String bString) {
             // given
             HugeInteger a = new HugeInteger(aString);
             HugeInteger b = new HugeInteger(bString);
@@ -166,6 +217,22 @@ class HugeIntegerTest {
 
             // then
             assertFalse(isLessThan);
+        }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/isLessThan-performance.csv", numLinesToSkip = 1)
+        void testIsLessThanThanPerformance(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            Executable e = () -> {
+                boolean isLessThan = HugeInteger.isLessThan(a, b);
+            };
+
+            // then
+            assertTimeout(Duration.ofMillis(2), e); // all isLessThan calls must perform in 2 msecs
         }
     }
 
@@ -206,6 +273,23 @@ class HugeIntegerTest {
             assertThrows(Exception.class, executable);
 
         }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/valid-subtraction-arguments.csv", numLinesToSkip = 1)
+        void testSubtractPerformance(String aString, String bString, String expectedResult) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            Executable executable = () -> {
+                HugeInteger result = HugeInteger.subtract(a, b);
+            };
+
+            // then
+            assertTimeout(Duration.ofMillis(3), executable); // all subtract calls must perform under 3 secs
+
+        }
     }
 
     @Nested
@@ -237,13 +321,28 @@ class HugeIntegerTest {
             // then
             assertFalse(isNotEqual);
         }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/isNotEqualTo-performance.csv", numLinesToSkip = 1)
+        void testIsNotEqualToPerformance(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            Executable e = () -> { boolean isNotEqual = HugeInteger.isNotEqualTo(a,b); };
+
+            // then
+            assertTimeout(Duration.ofMillis(2), e); // all isNotEqualTo calls must perform under 2 msecs
+        }
+
     }
 
     @Nested
     class TestIsGreaterThanOrEqualToMethod {
         @ParameterizedTest(name="a={0}, b={1}")
         @CsvFileSource(resources = "resources/isGreaterThanOrEqualTo-returns-true.csv", numLinesToSkip = 1)
-        void testIsNotEqualToReturnsTrue(String aString, String bString) {
+        void testIsGreaterThanOrEqualToReturnsTrue(String aString, String bString) {
             // given
             HugeInteger a = new HugeInteger(aString);
             HugeInteger b = new HugeInteger(bString);
@@ -257,7 +356,7 @@ class HugeIntegerTest {
 
         @ParameterizedTest(name="a={0}, b={1}")
         @CsvFileSource(resources = "resources/isGreaterThanOrEqualTo-returns-false.csv", numLinesToSkip = 1)
-        void testIsNotEqualToReturnsFalse(String aString, String bString) {
+        void testIsGreaterThanOrEqualToFalse(String aString, String bString) {
             // given
             HugeInteger a = new HugeInteger(aString);
             HugeInteger b = new HugeInteger(bString);
@@ -268,13 +367,29 @@ class HugeIntegerTest {
             // then
             assertFalse(isGreaterThanOrEqual);
         }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/isGreaterThanOrEqualTo-performance.csv", numLinesToSkip = 1)
+        void testIsGreaterThanOrEqualToPerformance(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            Executable e = () -> {
+                boolean isGreaterThanOrEqual = HugeInteger.isGreaterThanOrEqualTo(a, b);
+            };
+
+            // then
+            assertTimeout(Duration.ofMillis(2), e); // all isGreaterThanOrEqualTo calls must perform under 2 msecs
+        }
     }
 
     @Nested
     class TestIsLessThanOrEqualToMethod {
         @ParameterizedTest(name="a={0}, b={1}")
         @CsvFileSource(resources = "resources/isLessThanOrEqualTo-returns-true.csv", numLinesToSkip = 1)
-        void testIsNotEqualToReturnsTrue(String aString, String bString) {
+        void testIsLessThanOrEqualToReturnsTrue(String aString, String bString) {
             // given
             HugeInteger a = new HugeInteger(aString);
             HugeInteger b = new HugeInteger(bString);
@@ -288,7 +403,7 @@ class HugeIntegerTest {
 
         @ParameterizedTest(name="a={0}, b={1}")
         @CsvFileSource(resources = "resources/isLessThanOrEqualTo-returns-false.csv", numLinesToSkip = 1)
-        void testIsNotEqualToReturnsFalse(String aString, String bString) {
+        void testIsLessThanOrEqualToReturnsFalse(String aString, String bString) {
             // given
             HugeInteger a = new HugeInteger(aString);
             HugeInteger b = new HugeInteger(bString);
@@ -298,6 +413,21 @@ class HugeIntegerTest {
 
             // then
             assertFalse(isLessThanOrEqual);
+        }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/isLessThanOrEqualTo-performance.csv", numLinesToSkip = 1)
+        void testIsLessThanOrEqualToPerformance(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            Executable e = () -> {
+                boolean isLessThanOrEqual = HugeInteger.isLessThanOrEqualTo(a,b); };
+
+            // then
+            assertTimeout(Duration.ofMillis(2), e); // all isLessThanOrEqualTo calls must complete under 2 msecs
         }
     }
 
@@ -316,6 +446,27 @@ class HugeIntegerTest {
 
                 // then
                 assertEquals(expectedResult, result.toString());
+
+            } catch(Exception e) {
+                System.out.println(e.getMessage()); // should never run, coz a & b are legit
+            }
+        }
+
+        @ParameterizedTest(name="a={0}, b={1}, aTimesB={2}")
+        @CsvFileSource(resources = "resources/valid-multiplication-arguments.csv", numLinesToSkip = 1)
+        void testMultiplyPerformance(String aString, String bString, String expectedResult) {
+            try {
+                // given
+                HugeInteger a = new HugeInteger(aString);
+                HugeInteger b = new HugeInteger(bString);
+
+                // when
+                Executable e = () -> {
+                    HugeInteger result = HugeInteger.multiply(a, b);
+                };
+
+                // then
+                assertTimeout(Duration.ofMillis(30), e); // all multiply calls must end in 30 msecs
 
             } catch(Exception e) {
                 System.out.println(e.getMessage()); // should never run, coz a & b are legit
@@ -361,6 +512,28 @@ class HugeIntegerTest {
             }
         }
 
+        @ParameterizedTest(name="a={0}, b={1}, aDividedByB={2}")
+        @CsvFileSource(resources = "resources/valid-division-arguments.csv", numLinesToSkip = 1)
+        void testDividePerformance(String aString, String bString, String expectedResult) {
+            try {
+                // given
+                HugeInteger a = new HugeInteger(aString);
+                HugeInteger b = new HugeInteger(bString);
+
+                // when
+                Executable e = () -> {
+                    HugeInteger result = HugeInteger.divide(a, b);
+                };
+
+                // then
+                assertTimeout(Duration.ofMillis(30), e); // all divide calls must execute under 30 secs
+
+            } catch(Exception e) {
+                System.out.println(e.getMessage()); // should never run, coz a & b are legit
+            }
+        }
+
+
         @ParameterizedTest(name="a={0}, b={1}")
         @CsvFileSource(resources = "resources/overflowing-division-arguments.csv", numLinesToSkip = 1)
         void testDivideException(String aString, String bString) {
@@ -394,6 +567,27 @@ class HugeIntegerTest {
 
                 // then
                 assertEquals(expectedResult, result.toString());
+
+            } catch(Exception e) {
+                System.out.println(e.getMessage()); // should never run, coz a & b are legit
+            }
+        }
+
+        @ParameterizedTest(name="a={0}, b={1}, aRemainderB={2}")
+        @CsvFileSource(resources = "resources/valid-remainder-arguments.csv", numLinesToSkip = 1)
+        void testRemainderPerformance(String aString, String bString, String expectedResult) {
+            try {
+                // given
+                HugeInteger a = new HugeInteger(aString);
+                HugeInteger b = new HugeInteger(bString);
+
+                // when
+                Executable e = () -> {
+                    HugeInteger result = HugeInteger.remainder(a, b);
+                };
+
+                // then
+                assertTimeout(Duration.ofMillis(50), e); // all remainder calls must perform under 50 msecs
 
             } catch(Exception e) {
                 System.out.println(e.getMessage()); // should never run, coz a & b are legit

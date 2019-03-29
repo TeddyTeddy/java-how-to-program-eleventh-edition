@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0f1b657f-6ca4-402f-af6e-797c10841875" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RemainingTestsToMoveToJUnit5" beforeDir="false" afterPath="$PROJECT_DIR$/RemainingTestsToMoveToJUnit5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ex08_17/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ex08_17/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ex08_17/HugeIntegerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ex08_17/HugeIntegerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ex08_17/RemainingTestsToMoveToJUnit5" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ex08_17/RemainingTestsToMoveToJUnit5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/HugeIntegerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/HugeIntegerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ex08_17/RemainingTestsToMoveToJUnit5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/resources/invalid-constructor-arguments.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/resources/invalid-constructor-arguments.csv" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/HugeIntegerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="385" column="83" lean-forward="true" selection-start-line="385" selection-start-column="83" selection-end-line="385" selection-end-column="83" />
+            <state relative-caret-position="6060">
+              <caret line="404" column="26" selection-start-line="404" selection-start-column="26" selection-end-line="404" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,6 +36,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/resources/invalid-constructor-arguments.csv">
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/resources/overflowing-remainder-arguments.csv">
           <provider editor-type-id="csv-table-editor">
             <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
@@ -55,7 +64,11 @@
           <provider editor-type-id="csv-table-editor">
             <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
           </provider>
-          <provider selected="true" editor-type-id="csv-text-editor" />
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="420">
+              <caret line="34" column="98" selection-start-line="34" selection-start-column="98" selection-end-line="34" selection-end-column="98" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -139,7 +152,6 @@
         <option value="$PROJECT_DIR$/test/invalid-constructor-arguments.csv" />
         <option value="$PROJECT_DIR$/HugeInteger.java" />
         <option value="$PROJECT_DIR$/test/resources/valid-constructor-arguments.csv" />
-        <option value="$PROJECT_DIR$/test/resources/invalid-constructor-arguments.csv" />
         <option value="$PROJECT_DIR$/test/resources/addition-arguments.csv" />
         <option value="$PROJECT_DIR$/test/resources/overflowing-addition-arguments.csv" />
         <option value="$PROJECT_DIR$/test/resources/valid-addition-arguments.csv" />
@@ -161,8 +173,10 @@
         <option value="$PROJECT_DIR$/test/resources/overflowing-multiplication-arguments.csv" />
         <option value="$PROJECT_DIR$/test/resources/overflowing-division-arguments.csv" />
         <option value="$PROJECT_DIR$/test/resources/valid-division-arguments.csv" />
-        <option value="$PROJECT_DIR$/test/HugeIntegerTest.java" />
         <option value="$PROJECT_DIR$/test/resources/overflowing-remainder-arguments.csv" />
+        <option value="$PROJECT_DIR$/test/HugeIntegerTest.java" />
+        <option value="$PROJECT_DIR$/test/resources/valid-remainder-arguments.csv" />
+        <option value="$PROJECT_DIR$/test/resources/invalid-constructor-arguments.csv" />
       </list>
     </option>
   </component>
@@ -216,7 +230,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553861819063" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553862539112" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/test" />
@@ -246,7 +260,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HugeIntegerTest$TestRemainderMethod.testDivideException">
+  <component name="RunManager" selected="JUnit.HugeIntegerTest$HugeIntegerConstructorTests.passingInvalidStringToHugeIntegerConstructor">
     <configuration name="HugeIntegerTest" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="HugeIntegerTest" />
       <module name="ex08_17" />
@@ -254,32 +268,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HugeIntegerTest$TestDivideMethod.testDivide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HugeIntegerTest$HugeIntegerConstructorTests.passingInvalidStringToHugeIntegerConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ex08_17" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HugeIntegerTest$TestDivideMethod" />
-      <option name="METHOD_NAME" value="testDivide(java.lang.String,java.lang.String,java.lang.String)" />
+      <option name="MAIN_CLASS_NAME" value="HugeIntegerTest$HugeIntegerConstructorTests" />
+      <option name="METHOD_NAME" value="passingInvalidStringToHugeIntegerConstructor(java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HugeIntegerTest$TestDivideMethod.testDivideException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HugeIntegerTest$TestRemainderMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ex08_17" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HugeIntegerTest$TestDivideMethod" />
-      <option name="METHOD_NAME" value="testDivideException(java.lang.String,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HugeIntegerTest$TestDivideMethod.testMultiply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ex08_17" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HugeIntegerTest$TestDivideMethod" />
-      <option name="METHOD_NAME" value="testMultiply(java.lang.String,java.lang.String,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="HugeIntegerTest$TestRemainderMethod" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -289,6 +292,16 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="HugeIntegerTest$TestRemainderMethod" />
       <option name="METHOD_NAME" value="testDivideException(java.lang.String,java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HugeIntegerTest$TestRemainderMethod.testRemainderException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ex08_17" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HugeIntegerTest$TestRemainderMethod" />
+      <option name="METHOD_NAME" value="testRemainderException(java.lang.String,java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -305,19 +318,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.HugeIntegerTest" />
-      <item itemvalue="JUnit.HugeIntegerTest$TestDivideMethod.testMultiply" />
-      <item itemvalue="JUnit.HugeIntegerTest$TestDivideMethod.testDivide" />
-      <item itemvalue="JUnit.HugeIntegerTest$TestDivideMethod.testDivideException" />
       <item itemvalue="JUnit.HugeIntegerTest" />
       <item itemvalue="JUnit.HugeIntegerTest$TestRemainderMethod.testDivideException" />
+      <item itemvalue="JUnit.HugeIntegerTest$TestRemainderMethod.testRemainderException" />
+      <item itemvalue="JUnit.HugeIntegerTest$TestRemainderMethod" />
+      <item itemvalue="JUnit.HugeIntegerTest$HugeIntegerConstructorTests.passingInvalidStringToHugeIntegerConstructor" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HugeIntegerTest$TestRemainderMethod.testDivideException" />
+        <item itemvalue="JUnit.HugeIntegerTest$HugeIntegerConstructorTests.passingInvalidStringToHugeIntegerConstructor" />
         <item itemvalue="JUnit.HugeIntegerTest" />
-        <item itemvalue="JUnit.HugeIntegerTest$TestDivideMethod.testDivide" />
-        <item itemvalue="JUnit.HugeIntegerTest$TestDivideMethod.testDivideException" />
-        <item itemvalue="JUnit.HugeIntegerTest$TestDivideMethod.testMultiply" />
+        <item itemvalue="JUnit.HugeIntegerTest$TestRemainderMethod" />
+        <item itemvalue="JUnit.HugeIntegerTest$TestRemainderMethod.testRemainderException" />
+        <item itemvalue="JUnit.HugeIntegerTest$TestRemainderMethod.testDivideException" />
       </list>
     </recent_temporary>
   </component>
@@ -335,18 +348,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HugeIntegerTest$TestDivideMethod_testDivide - 2019.03.29 at 11h 56m 16s.xml">
-      <configuration name="HugeIntegerTest$TestDivideMethod.testDivide" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HugeIntegerTest$TestDivideMethod_testDivideException - 2019.03.29 at 11h 58m 06s.xml">
-      <configuration name="HugeIntegerTest$TestDivideMethod.testDivideException" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HugeIntegerTest$TestDivideMethod_testDivide - 2019.03.29 at 12h 00m 48s.xml">
-      <configuration name="HugeIntegerTest$TestDivideMethod.testDivide" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HugeIntegerTest$TestDivideMethod_testDivide - 2019.03.29 at 12h 03m 55s.xml">
-      <configuration name="HugeIntegerTest$TestDivideMethod.testDivide" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HugeIntegerTest$TestDivideMethod_testDivide - 2019.03.29 at 12h 07m 15s.xml">
       <configuration name="HugeIntegerTest$TestDivideMethod.testDivide" configurationId="JUnit" />
     </history-entry>
@@ -365,13 +366,25 @@
     <history-entry file="HugeIntegerTest - 2019.03.29 at 12h 55m 25s.xml">
       <configuration name="HugeIntegerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="HugeIntegerTest$TestRemainderMethod_testDivideException - 2019.03.29 at 14h 17m 20s.xml">
+      <configuration name="HugeIntegerTest$TestRemainderMethod.testDivideException" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HugeIntegerTest$TestRemainderMethod_testRemainderException - 2019.03.29 at 14h 17m 47s.xml">
+      <configuration name="HugeIntegerTest$TestRemainderMethod.testRemainderException" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HugeIntegerTest$TestRemainderMethod - 2019.03.29 at 14h 24m 36s.xml">
+      <configuration name="HugeIntegerTest$TestRemainderMethod" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HugeIntegerTest - 2019.03.29 at 14h 28m 13s.xml">
+      <configuration name="HugeIntegerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1537" height="912" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4967825" visible="true" weight="0.25990596" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.5032175" side_tool="true" visible="true" weight="0.25990596" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49520153" visible="true" weight="0.25990596" />
+      <window_info id="Structure" order="1" sideWeight="0.5047985" side_tool="true" visible="true" weight="0.25990596" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -379,7 +392,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32947233" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32947233" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -413,16 +426,6 @@
     <entry file="file://$PROJECT_DIR$/../../HealthyCoderApp/src/test/com/healthycoderapp/src/main/java/com/healthycoderapp/DietPlannerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-89" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/resources/invalid-constructor-arguments.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../HealthyCoderApp/src/test/com/healthycoderapp/BMICalculatorTest.java">
@@ -653,26 +656,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/resources/valid-remainder-arguments.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/HugeIntegerTest2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="19" selection-start-line="19" selection-end-line="58" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HugeIntegerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="385" column="83" lean-forward="true" selection-start-line="385" selection-start-column="83" selection-end-line="385" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -683,6 +670,36 @@
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/resources/valid-remainder-arguments.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="420">
+          <caret line="34" column="98" selection-start-line="34" selection-start-column="98" selection-end-line="34" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/HugeIntegerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6060">
+          <caret line="404" column="26" selection-start-line="404" selection-start-column="26" selection-end-line="404" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/resources/invalid-constructor-arguments.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
