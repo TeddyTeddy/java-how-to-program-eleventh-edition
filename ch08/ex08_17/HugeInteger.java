@@ -95,15 +95,15 @@ public class HugeInteger {
 		// number contains something, check its content:
 		// if it contains '-' or '+' sign, then expect at most MAX_DIGITS + 1 characters in number
 		if((number.charAt(0) == '+') || (number.charAt(0) == '-')) {
-			isValid = (number.length() <= (MAX_DIGITS + 1));
+			isValid = (number.length() > 1) && (number.length() <= (MAX_DIGITS + 1));
 			if(!isValid) {
-				reason = number + " contains more than " + String.format("%d", (MAX_DIGITS + 1)) + " characters";
+				reason = number + " must contain " + String.format("[%d-%d]", 1, (MAX_DIGITS + 1)) + " characters";
 				return new AnalysisResult(isValid, reason);
 			}
 		} else if((number.charAt(0) != '+') && (number.charAt(0) != '-')) { // if it does not contain '-' or '+' sign, then expect at most MAX_DIGITS characters in number
-			isValid = (number.length() <= MAX_DIGITS );
+			isValid = (number.length() >= 1) && (number.length() <= MAX_DIGITS );
 			if(!isValid) {
-				reason = number + " contains more than " + String.format("%d", MAX_DIGITS) + " characters";
+				reason = number + " must contain " + String.format("[%d-%d]", 1, MAX_DIGITS) + " characters";
 				return new AnalysisResult(isValid, reason);
 			}		
 		}
