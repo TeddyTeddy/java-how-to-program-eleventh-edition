@@ -269,4 +269,152 @@ class HugeIntegerTest {
             assertFalse(isGreaterThanOrEqual);
         }
     }
+
+    @Nested
+    class TestIsLessThanOrEqualToMethod {
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/isLessThanOrEqualTo-returns-true.csv", numLinesToSkip = 1)
+        void testIsNotEqualToReturnsTrue(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            boolean isLessThanOrEqual = HugeInteger.isLessThanOrEqualTo(a,b);
+
+            // then
+            assertTrue(isLessThanOrEqual);
+        }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/isLessThanOrEqualTo-returns-false.csv", numLinesToSkip = 1)
+        void testIsNotEqualToReturnsFalse(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            boolean isLessThanOrEqual = HugeInteger.isLessThanOrEqualTo(a,b);
+
+            // then
+            assertFalse(isLessThanOrEqual);
+        }
+    }
+
+    @Nested
+    class TestMultiplyMethod {
+        @ParameterizedTest(name="a={0}, b={1}, aTimesB={2}")
+        @CsvFileSource(resources = "resources/valid-multiplication-arguments.csv", numLinesToSkip = 1)
+        void testMultiply(String aString, String bString, String expectedResult) {
+            try {
+                // given
+                HugeInteger a = new HugeInteger(aString);
+                HugeInteger b = new HugeInteger(bString);
+
+                // when
+                HugeInteger result = HugeInteger.multiply(a, b);
+
+                // then
+                assertEquals(expectedResult, result.toString());
+
+            } catch(Exception e) {
+                System.out.println(e.getMessage()); // should never run, coz a & b are legit
+            }
+        }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/overflowing-multiplication-arguments.csv", numLinesToSkip = 1)
+        void testMultiplyException(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            Executable executable = () -> {
+                HugeInteger result = HugeInteger.multiply(a, b);
+            };
+
+            // then
+            assertThrows(Exception.class, executable);
+
+        }
+    }
+
+    @Nested
+    class TestDivideMethod {
+        @ParameterizedTest(name="a={0}, b={1}, aDividedByB={2}")
+        @CsvFileSource(resources = "resources/valid-division-arguments.csv", numLinesToSkip = 1)
+        void testDivide(String aString, String bString, String expectedResult) {
+            try {
+                // given
+                HugeInteger a = new HugeInteger(aString);
+                HugeInteger b = new HugeInteger(bString);
+
+                // when
+                HugeInteger result = HugeInteger.divide(a, b);
+
+                // then
+                assertEquals(expectedResult, result.toString());
+
+            } catch(Exception e) {
+                System.out.println(e.getMessage()); // should never run, coz a & b are legit
+            }
+        }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/overflowing-division-arguments.csv", numLinesToSkip = 1)
+        void testDivideException(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            Executable executable = () -> {
+                HugeInteger result = HugeInteger.divide(a, b);
+            };
+
+            // then
+            assertThrows(Exception.class, executable);
+
+        }
+    }
+
+    @Nested
+    class TestRemainderMethod {
+        @ParameterizedTest(name="a={0}, b={1}, aRemainderB={2}")
+        @CsvFileSource(resources = "resources/valid-remainder-arguments.csv", numLinesToSkip = 1)
+        void testRemainder(String aString, String bString, String expectedResult) {
+            try {
+                // given
+                HugeInteger a = new HugeInteger(aString);
+                HugeInteger b = new HugeInteger(bString);
+
+                // when
+                HugeInteger result = HugeInteger.remainder(a, b);
+
+                // then
+                assertEquals(expectedResult, result.toString());
+
+            } catch(Exception e) {
+                System.out.println(e.getMessage()); // should never run, coz a & b are legit
+            }
+        }
+
+        @ParameterizedTest(name="a={0}, b={1}")
+        @CsvFileSource(resources = "resources/overflowing-remainder-arguments.csv", numLinesToSkip = 1)
+        void testRemainderException(String aString, String bString) {
+            // given
+            HugeInteger a = new HugeInteger(aString);
+            HugeInteger b = new HugeInteger(bString);
+
+            // when
+            Executable executable = () -> {
+                HugeInteger result = HugeInteger.remainder(a, b);
+            };
+
+            // then
+            assertThrows(Exception.class, executable);
+
+        }
+    }
 }
