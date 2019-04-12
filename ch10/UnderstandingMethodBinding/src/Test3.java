@@ -3,6 +3,8 @@ public class Test3 {
         /* Create a new Manager object and assign its reference to a variable of Employee type*/
         Employee emp = new Manager();
 
+        emp.greet();
+
         ((Manager) emp).greet();
     }
 }

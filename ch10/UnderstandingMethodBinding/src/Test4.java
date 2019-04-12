@@ -4,9 +4,9 @@ public class Test4 {
         BindingTest_Sub sub1 = new BindingTest_Sub();
         BindingTest_Base sub2 = new BindingTest_Sub();
 
-        sub1.ovrLd(new Integer(1));       //  statement 1
-        sub2.ovrLd(new Integer(2));       //  statement 2
-        sub2.ovrRd();                           //  statement 3
+        sub1.ovrLd(new Integer(1));       //  statement 1: BindingTest_Sub ovrLd()
+        sub2.ovrLd(new Integer(2));       //  statement 2: BindingTest_Base ovrLd()
+        sub2.ovrRd();                           //  statement 3: BindingTest_Sub ovrRd()
     }
 }
 
